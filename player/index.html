@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>從 LO 到 5G</title>
+<style>
+:root{--kraft:#cdb88f;--ink:#2a2622;--paper:#f5eedf;--red:#c4432f;--teal:#1d6b73;--mustard:#d89a2b}
+*{box-sizing:border-box}
+body{margin:0;background:#1d1a16;color:#f3ecdc;font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC","Noto Sans","Segoe UI",sans-serif}
+#caption2:lang(ja){font-family:"Noto Sans JP","Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans TC",sans-serif}
+#caption2:lang(vi){font-family:"Noto Sans","Segoe UI","Arial","Noto Sans TC",sans-serif}
+button,select,input{font:inherit}
+button,select{background:#2c2721;color:#f6efe0;border:1px solid #6d604c;border-radius:9px;padding:9px 14px;cursor:pointer}
+button:hover,select:hover{background:#3a332b}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f0c25a}
+#shell{margin:auto;max-width:1400px;padding:20px}
+#viewport{position:relative;overflow:hidden;border-radius:16px;box-shadow:0 22px 80px #000a}
+#stage{position:relative;transform-origin:top left;overflow:hidden;color:var(--ink);
+ background:radial-gradient(ellipse at 30% 20%,#dccaa2 0,#cdb88f 45%,#b9a37a 100%)}
+#grainbg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.eyebrow{position:absolute;left:96px;top:46px;font-size:26px;letter-spacing:6px;color:#7a2f22;font-weight:700}
+#heading{position:absolute;left:96px;top:74px;width:1728px;height:92px;font-size:62px;line-height:1.45;margin:0;font-weight:900;color:var(--ink)}
+#subheading{position:absolute;left:98px;top:168px;width:1728px;font-size:30px;margin:0;color:#4b4134;font-weight:600}
+#visual{position:absolute;left:96px;top:232px;width:1728px;height:640px}
+#scene{display:block;width:100%;height:100%;overflow:visible}
+#scene text{font-family:inherit}
+#caption{position:absolute;left:134px;bottom:40px;width:1652px;height:150px;z-index:3;border-radius:14px;background:#1d1a16e6;color:#fbf5e6;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 24px;text-align:center;gap:6px;font-size:42px;line-height:1.28}
+#caption .secondary{font-size:34px;color:#f0d9a8}
+#credit{position:absolute;inset:0;display:none;align-items:center;justify-content:center}
+#credit .card{background:var(--paper);padding:60px 150px;box-shadow:0 18px 40px #0005;transform:rotate(-1.5deg);text-align:center;position:relative}
+#credit .card:before{content:"";position:absolute;left:50%;top:-18px;width:160px;height:36px;margin-left:-80px;background:#f1df95c0;transform:rotate(3deg)}
+#credit small{display:block;font-size:30px;letter-spacing:12px;color:#7a2f22;margin-bottom:22px}
+#credit strong{font-size:96px;letter-spacing:14px;font-weight:900}
+#progress-mark{position:absolute;height:6px;background:#7a2f22;left:0;bottom:0}
+#controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:16px 0}
+#seek{flex:1;min-width:170px;accent-color:#d89a2b}
+#time{font-variant-numeric:tabular-nums;color:#d7cbb3}
+.panel{padding:18px;border:1px solid #5a4f40;border-radius:14px;background:#26221d;margin-top:8px}
+.panel h2{margin:0 0 6px;font-size:22px;color:#f0c25a}
+.panel p{margin:6px 0;color:#d9cfbb;line-height:1.6}
+#lab{display:block;width:100%;max-width:900px;height:auto;background:#efe6d2;border-radius:12px;margin:10px 0;touch-action:manipulation}
+#lab .edge{cursor:pointer}
+.labbtns{display:flex;gap:10px;flex-wrap:wrap}
+#feedback{color:#9fe0c9;font-weight:700;min-height:1.6em}
+.note{font-size:13px;color:#a99d86;line-height:1.6}
+body.export #shell{padding:0;max-width:none}
+body.export #viewport{border-radius:0;box-shadow:none}
+body.export #controls,body.export .panel,body.export .note{display:none}
+@media (prefers-reduced-motion:reduce){#viewport{scroll-behavior:auto}}
+</style>
+<div id="shell">
+<div id="viewport"><main id="stage" aria-label="教學動畫畫面">
+<svg id="grainbg" aria-hidden="true"><filter id="bgnoise"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 .25  0 0 0 0 .2  0 0 0 0 .12  0 0 0 .22 0"/></filter><rect width="100%" height="100%" filter="url(#bgnoise)"/></svg>
+<div class="eyebrow" id="eyebrow"></div>
+<h1 id="heading" data-qa data-container="#stage"></h1>
+<p id="subheading" data-qa data-container="#stage"></p>
+<div id="visual" data-qa data-container="#stage"><svg id="scene" viewBox="0 0 1728 640" aria-label="動畫圖解">
+<defs>
+<filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="4" dy="8" stdDeviation="7" flood-color="#3a2a12" flood-opacity=".35"/></filter>
+<filter id="grainf"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .25  0 0 0 0 .18  0 0 0 .18 0"/></filter>
+<pattern id="lines" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12 L12 0" stroke="#00000014" stroke-width="2"/></pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1d6b73"/></marker>
+</defs>
+<g id="layer"></g>
+</svg></div>
+<div id="credit" data-qa data-container="#stage"><div class="card"><small>感謝觀看</small><strong>李振偉老師</strong></div></div>
+<div id="caption" data-qa data-container="#stage"><div id="caption1"></div><div id="caption2" class="secondary"></div></div>
+<div id="progress-mark"></div>
+</main></div>
+<nav id="controls" aria-label="播放控制">
+<button id="play">播放</button><button id="replay">重播</button>
+<input id="seek" type="range" min="0" step="1" value="0" aria-label="播放進度">
+<span id="time"></span>
+<select id="locale" aria-label="配音語言"><option value="zh-TW">中文配音</option><option value="en-US">英文配音</option></select>
+<select id="subs" aria-label="字幕語言"><option value="en-US">中英字幕</option><option value="vi-VN">中越字幕</option><option value="ja-JP">中日字幕</option></select>
+<button id="captions" aria-pressed="true">字幕開啟</button>
+<select id="chapters" aria-label="章節"></select>
+</nav>
+<section class="panel" aria-label="封包繞道實驗室">
+<h2>互動：封包繞道實驗室</h2>
+<p>點一下線路可讓它「斷線」（再點一次修復），然後按「送出封包」，看看封包從「起點」能不能抵達「終點」、走哪條路。試著切斷所有通往終點的線，想想馬祖斷纜時發生了什麼。</p>
+<svg id="lab" viewBox="0 0 900 380" role="group" aria-label="可點擊的網路圖"></svg>
+<div class="labbtns"><button id="send">送出封包</button><button id="isolate">切斷所有通往終點的線</button><button id="addbackup">加上一條衛星備援線</button><button id="resetlab">全部修復</button></div>
+<p id="feedback" role="status">所有線路正常。按「送出封包」試試看。</p>
+</section>
+<p class="note">畫面中的網路、地圖與島嶼為示意圖，非實際比例或真實路由；速度比較為標稱速率換算，非實測。來源列於 project.json 與 sources.md。鍵盤：空白鍵播放／暫停，← → 前後 5 秒。</p>
+</div>
+<script>
+// Every visible state is a pure function of (frame, narration locale, subtitle language, caption toggle).
+// Scene animation is keyed to each locale's measured sentence anchors, so zh/en narration stay in sync.
+const $=id=>document.getElementById(id),params=new URLSearchParams(location.search);
+const exporting=params.get('export')==='1';if(exporting)document.body.classList.add('export');
+const SUBS=['en-US','vi-VN','ja-JP'];
+let project,frame=0,locale=params.get('locale')||'zh-TW',subs=SUBS.includes(params.get('captions'))?params.get('captions'):'en-US',playing=false,
+ captionOn=!exporting||SUBS.includes(params.get('captions')),last=0,audio=new Audio(),audioReady=false;
+const clamp=x=>Math.min(1,Math.max(0,x)),ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const back=x=>{const c=1.6;x=clamp(x);return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,p)=>a+(b-a)*p;
+const C={ink:'#2a2622',paper:'#f5eedf',paper2:'#ebe0c6',red:'#c4432f',teal:'#1d6b73',mustard:'#d89a2b',blue:'#3d6f9e',gray:'#857b69',green:'#3f7d4a',sea:'#9fbcc2',sea2:'#86a9b0'};
+const CH=['','第 1 章 · 起源','第 2 章 · 原理','第 3 章 · 比較','第 4 章 · 應用案例','第 5 章 · 展望'];
+// --- tiny SVG helpers ---------------------------------------------------------------
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function G(inner,{x=0,y=0,r=0,s=1,o=1,id=''}={}){if(o<=0.001)return '';return `<g${id?` id="${id}" class="qa"`:''} transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${r.toFixed(2)}) scale(${s.toFixed(3)})" opacity="${o.toFixed(3)}">${inner}</g>`}
+function Tx(x,y,s,size=30,{fill=C.ink,anchor='middle',weight=700,ls=0,italic=false}={}){return `<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" text-anchor="${anchor}" font-weight="${weight}"${ls?` letter-spacing="${ls}"`:''}${italic?' font-style="italic"':''} dominant-baseline="middle">${esc(s)}</text>`}
+function Paper(w,h,{fill=C.paper,tape=true,tapeX=0,shadow=true}={}){return `<rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" fill="${fill}"${shadow?' filter="url(#shadow)"':''}/><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" fill="${fill}" filter="url(#grainf)" opacity=".55"/>`+(tape?`<rect x="${tapeX-45}" y="${-h/2-15}" width="90" height="28" fill="#f1df95" opacity=".78" transform="rotate(-4 ${tapeX} ${-h/2})"/>`:'')}
+function Stamp(s,{size=34,color=C.red,w=null}={}){const W=w||s.length*size*1.05+40;return `<rect x="${-W/2}" y="${-size*.9}" width="${W}" height="${size*1.8}" fill="none" stroke="${color}" stroke-width="5" rx="6"/>`+Tx(0,2,s,size,{fill:color,weight:900,ls:2})}
+function Line(x1,y1,x2,y2,p=1,{stroke=C.ink,w=4,dash=''}={}){const x=lerp(x1,x2,p),y=lerp(y1,y2,p);return p<=0?'':`<line x1="${x1}" y1="${y1}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${stroke}" stroke-width="${w}" stroke-linecap="round"${dash?` stroke-dasharray="${dash}"`:''}/>`}
+function Pin(label,sub,{color=C.red,anchor='start',dx=22}={}){return `<path d="M0 0 C-14 -20 -16 -30 -16 -36 A16 16 0 1 1 16 -36 C16 -30 14 -20 0 0z" fill="${color}" filter="url(#shadow)"/><circle cy="-36" r="6" fill="${C.paper}"/>`+Tx(anchor==='start'?dx:-dx,-44,label,30,{anchor,weight:900})+(sub?Tx(anchor==='start'?dx:-dx,-10,sub,24,{anchor,weight:600,fill:'#4b4134'}):'')}
+function polyAt(pts,p){let L=0;const seg=[];for(let i=1;i<pts.length;i++){const d=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);seg.push(d);L+=d}let r=clamp(p)*L;for(let i=0;i<seg.length;i++){if(r<=seg[i]||i===seg.length-1){const q=seg[i]?Math.min(1,r/seg[i]):0;return[lerp(pts[i][0],pts[i+1][0],q),lerp(pts[i][1],pts[i+1][1],q)]}r-=seg[i]}return pts.at(-1)}
+const kk=(t,a,d=.6)=>ease(clamp((t-a)/d));
+const pop=(t,a,d=.45)=>{const p=clamp((t-a)/d);return{o:clamp(p*1.6),s:.82+.18*back(p)}};
+function Slip(ch,n,{tag=true,c=C.mustard}={}){return `<rect x="-34" y="-34" width="68" height="68" fill="${C.paper}" stroke="${c}" stroke-width="4" filter="url(#shadow)"/>`+Tx(0,-4,ch,36,{weight:900})+(tag?`<rect x="-34" y="20" width="68" height="22" fill="${c}"/>`+Tx(0,31,'#'+n+' →終點',17,{fill:'#fff',weight:700}):'')}
+function Router(label,{c=C.teal,lit=0}={}){const top=`M0 -26 L40 -6 L0 14 L-40 -6z`;return `<path d="M-40 -6 L-40 14 L0 34 L40 14 L40 -6 L0 14z" fill="#16494f"/><path d="${top}" fill="${lit?C.mustard:c}"/><path d="M-40 -6 L0 14 L0 34 L-40 14z" fill="#1a575e"/>`+(label?Tx(0,62,label,26,{weight:800}):'')}
+function Clock(){return `<circle r="34" fill="${C.paper}" stroke="${C.ink}" stroke-width="5"/><line x1="0" y1="0" x2="0" y2="-22" stroke="${C.ink}" stroke-width="5" stroke-linecap="round"/><line x1="0" y1="0" x2="16" y2="6" stroke="${C.ink}" stroke-width="5" stroke-linecap="round"/>`}
+// --- scene 1: origin ----------------------------------------------------------------------
+function s1(t,A,E,sc){let h='';
+ const MP=(lon,lat)=>[-450+(lon+125)/16*900,-280+(42-lat)/10*560];
+ const phoneOut=kk(t,A[2]-.35,.7);
+ if(phoneOut<1){const pin=pop(t,sc.start+.5,.6),px=380-80*phoneOut;
+  let ph=`<rect x="-150" y="-260" width="300" height="520" rx="36" fill="#262321" filter="url(#shadow)"/><rect x="-132" y="-226" width="264" height="450" rx="12" fill="#f2efe8"/>`;
+  const lo=kk(t,A[1]+.6,.7);
+  ['嗨，下課了嗎？','等等吃什麼？','傳個貼圖給你'].forEach((b,i)=>{const q=pop(t,A[0]+.25+i*.45,.4);ph+=G(`<rect x="${i%2?-40:-120}" y="-24" width="${b.length*24+30}" height="48" rx="22" fill="${i%2?'#9fd3a8':'#fff'}" stroke="#cfc8b8"/>`+Tx(i%2?-25:-105,1,b,22,{anchor:'start',weight:600}),{y:-150+i*80,o:q.o*(1-lo),s:q.s})});
+  ph+=G(Tx(0,0,'L O',120,{weight:900,fill:C.red,ls:12}),{y:40,o:lo,s:.6+.4*back(clamp((t-A[1]-.6)/.6))});
+  ph+=G(Tx(0,0,'網路的第一句話',30,{weight:800}),{y:150,o:lo});
+  h+=G(ph,{x:px,y:330,r:-4+3*phoneOut,o:pin.o*(1-phoneOut),s:pin.s,id:'phone'});}
+ // newspaper clipping
+ const cin=kk(t,A[2]-.2,.8);
+ if(cin>0){let c=Paper(560,560,{fill:'#f3ecd9',tapeX:-160});
+  c+=Tx(0,-232,'THE  DAILY  NETWORK',22,{weight:700,ls:6,fill:'#6d6250'})+`<line x1="-250" y1="-208" x2="250" y2="-208" stroke="${C.ink}" stroke-width="3"/>`;
+  c+=Tx(0,-150,'1969-10-29',78,{weight:900,fill:C.red});
+  c+=Tx(0,-72,'ARPANET 第一則訊息',40,{weight:900});
+  c+=Tx(0,-20,'UCLA → SRI（晚間 10:30）',28,{weight:700,fill:'#4b4134'});
+  for(let i=0;i<4;i++)c+=`<rect x="-240" y="${22+i*30}" width="${i===3?300:480}" height="12" fill="#c9bfa8"/>`;
+  const hr=kk(t,A[6],.6);c+=G(G(Clock(),{x:-180})+Tx(-128,0,'約 1 小時後：LOGIN 成功',30,{anchor:'start',weight:800,fill:C.green}),{y:180,o:hr});
+  const st=pop(t,A[7]+.2,.4);c+=G(Stamp('美國國防部資助',{size:36}),{x:70,y:105,r:-9,o:st.o,s:st.s*1.0+(1-st.s)*1.6});
+  h+=G(c,{x:335+40*(1-cin),y:322,r:-3,o:cin,id:'clipping'});}
+ // map card
+ const min=kk(t,A[2]+.25,.8);
+ if(min>0){let m=Paper(980,580,{fill:'#efe7d3',tapeX:300});
+  m+=`<rect x="-490" y="-290" width="980" height="580" fill="url(#lines)" opacity=".5"/>`;
+  const coast=[[-124.2,42],[-124.1,40.4],[-123.8,39.3],[-123,38.3],[-122.5,37.8],[-122.4,37.2],[-121.9,36.6],[-121.3,35.7],[-120.6,34.9],[-120.4,34.45],[-119.2,34.15],[-118.5,34],[-118.2,33.75],[-117.3,33],[-117.1,32.3]].map(p=>MP(...p));
+  m+=`<path d="M-490 -290 L${coast.map(p=>p.join(' ')).join(' L')} L-490 290 Z" fill="${C.sea}" opacity=".75"/>`;
+  m+=`<polyline points="${coast.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${C.ink}" stroke-width="3"/>`;
+  m+=Tx(-400,140,'太平洋',30,{fill:'#3e5d63',weight:800,ls:6})+Tx(40,-170,'加州',34,{fill:'#8a7a5c',weight:900,ls:8})+Tx(330,-90,'猶他',34,{fill:'#8a7a5c',weight:900,ls:8});
+  const [ux,uy]=MP(-118.44,34.07),[sx,sy]=MP(-122.18,37.45),[bx,by]=MP(-119.85,34.41),[tx,ty]=MP(-111.89,40.76);
+  // 1969 year-end links
+  const net=kk(t,A[9]+.3,1.2);
+  if(net>0){[[ux,uy,bx,by],[bx,by,sx,sy],[sx,sy,tx,ty]].forEach((l,i)=>{m+=Line(...l,clamp(net*1.5-i*.25),{stroke:C.teal,w:6})})}
+  const lp=kk(t,A[4]+.1,.9);m+=Line(ux,uy-36,sx,sy-36,lp,{stroke:C.ink,w:5,dash:'14 10'});
+  const crash=A[5]+(E[5]-A[5])*.5;
+  ['L','O','G'].forEach((ch,i)=>{const st=A[4]+1.1+i*.75;let p=clamp((t-st)/1.5);if(i===2)p=Math.min(p,.42);if(t<st)return;
+   const [x,y]=[lerp(ux,sx,ease(p)),lerp(uy,sy,ease(p))-36];const arrived=p>=1;
+   const lx=arrived?sx+38+i*44:x,ly=arrived?sy-112:y-52;
+   m+=G(`<rect x="-24" y="-26" width="48" height="52" fill="${i===2&&t>crash?'#e9b7ae':C.paper}" stroke="${C.ink}" stroke-width="3"/>`+Tx(0,1,ch,34,{weight:900,fill:i===2&&t>crash?C.red:C.ink}),{x:lx,y:ly})});
+  if(t>crash){const q=pop(t,crash,.35);const sh=t<crash+.6?Math.sin((t-crash)*70)*6*(1-(t-crash)/.6):0;
+   const mx=lerp(ux,sx,.42),my=lerp(uy,sy,.42)-36;
+   m+=G(`<path d="M-30 -30 L30 30 M30 -30 L-30 30" stroke="${C.red}" stroke-width="12" stroke-linecap="round"/>`,{x:mx+sh,y:my,o:q.o,s:q.s});
+   m+=G(Stamp('當機！',{size:40}),{x:mx+190+sh,y:my-70,r:-8,o:q.o,s:q.s})}
+  const p1=pop(t,A[3]+.1),p2=pop(t,A[4]+.1);
+  m+=G(Pin('UCLA','加州大學洛杉磯分校'),{x:ux,y:uy,o:p1.o,s:p1.s});
+  m+=G(Pin('SRI','史丹佛研究院',{anchor:'end'}),{x:sx,y:sy,o:p2.o,s:p2.s});
+  const p3=pop(t,A[9]+.1),p4=pop(t,A[9]+.5);
+  m+=G(Pin('UCSB','',{color:C.teal,anchor:'end',dx:22}),{x:bx,y:by+90,o:p3.o,s:p3.s});
+  if(p3.o>0)m+=Line(bx,by+90-4,bx,by,1,{stroke:C.teal,w:3,dash:'4 6'});
+  m+=G(Pin('猶他大學','',{color:C.teal}),{x:tx,y:ty,o:p4.o,s:p4.s});
+  const mf=kk(t,A[8]+.2,.6);
+  if(mf>0)[[ux+72,uy+60],[sx-40,sy+60]].forEach(([x,y])=>{m+=G(`<rect x="-26" y="-40" width="52" height="80" fill="#4a4740" stroke="${C.ink}" stroke-width="3"/><circle cx="-8" cy="-20" r="7" fill="${C.paper}"/><circle cx="10" cy="-20" r="7" fill="${C.paper}"/><rect x="-16" y="2" width="32" height="5" fill="${C.mustard}"/><rect x="-16" y="14" width="32" height="5" fill="${C.mustard}"/>`,{x,y,o:mf})});
+  const tag=pop(t,A[9]+1.2);m+=G(`<rect x="-200" y="-34" width="400" height="68" fill="${C.teal}"/>`+Tx(0,2,'1969 年底：4 台主機相連',30,{fill:'#fff',weight:800}),{x:220,y:240,o:tag.o,s:tag.s});
+  h+=G(m,{x:1200+12*(1-min),y:334,r:1.2,o:min,id:'map'});}
+ return h}
+// --- scene 2: principle (core shot) ------------------------------------------------------
+const NET={S:[690,330],A:[930,170],B:[930,490],F:[1210,105],C:[1210,330],E:[1210,560],D:[1470,330]};
+const EDGES=[['S','A'],['S','B'],['A','F'],['F','D'],['A','C'],['B','C'],['C','D'],['B','E'],['E','D']];
+function s2(t,A,E,sc){let h='';const N=NET;
+ // left comparison card that changes role
+ const cin=kk(t,sc.start+.3,.7),role2=kk(t,A[7]-.1,.6),role3=kk(t,A[11]+.2,.6);
+ let c=Paper(500,580,{fill:'#f3ecd9',tapeX:-120});
+ const r1o=1-role2;
+ if(r1o>0){let r='';r+=Tx(0,-240,'兩種傳遞方式',32,{weight:900});
+  r+=Tx(-215,-180,'電話：電路交換',30,{anchor:'start',weight:900,fill:C.red});
+  const occ=kk(t,A[0]+.4,.6),rel=kk(t,A[1]+.2,.8);
+  r+=`<rect x="-200" y="-140" width="50" height="80" rx="10" fill="#3b3631"/><rect x="150" y="-140" width="50" height="80" rx="10" fill="#3b3631"/>`;
+  r+=Line(-150,-100,150,-100,occ,{stroke:rel>0?'#d9a79d':C.red,w:rel>0?6:14,dash:rel>.5?'10 12':''});
+  r+=G(Tx(0,-50,rel<.5?'整條線全程獨占':'講完才釋放',26,{weight:700,fill:'#4b4134'}),{o:occ});
+  const pk=kk(t,A[2],.6);
+  r+=G(Tx(-215,30,'網路：封包交換',30,{anchor:'start',weight:900,fill:C.teal})+
+   [0,1,2,3].map(i=>`<rect x="${-200+i*30}" y="${70+(i%2)*28}" width="24" height="24" fill="${C.mustard}"/>`).join('')+
+   `<path d="M-60 95 C0 40 80 140 190 90" stroke="${C.teal}" stroke-width="5" fill="none" stroke-dasharray="8 8"/>`+
+   Tx(0,170,'線路大家共用・斷了能繞道',26,{weight:700,fill:'#4b4134'}),{o:pk});
+  c+=G(r,{o:r1o})}
+ if(role2>0&&role3<1){let r='';r+=Tx(0,-240,'TCP/IP：網路的交通規則',32,{weight:900});
+  r+=G(`<rect x="-220" y="-30" width="440" height="60" fill="${C.mustard}"/>`+Tx(0,1,'IP：寫地址、找路',30,{fill:'#fff',weight:800}),{y:-160});
+  r+=G(`<rect x="-220" y="-30" width="440" height="60" fill="${C.teal}"/>`+Tx(0,1,'TCP：編號、檢查、重組',30,{fill:'#fff',weight:800}),{y:-85});
+  r+=`<line x1="-180" y1="0" x2="-180" y2="210" stroke="${C.ink}" stroke-width="4"/>`;
+  const y1=pop(t,A[8]+.1),y2=pop(t,A[9]+.1),y3=pop(t,A[10]+.2);
+  r+=G(`<circle r="11" fill="${C.ink}"/>`+Tx(30,-14,'1974',38,{anchor:'start',weight:900})+Tx(30,22,'瑟夫與卡恩提出',26,{anchor:'start',weight:700,fill:'#4b4134'}),{x:-180,y:30,o:y1.o,s:y1.s});
+  r+=G(`<circle r="11" fill="${C.red}"/>`+Tx(30,-14,'1983-01-01',38,{anchor:'start',weight:900,fill:C.red})+Tx(30,22,'ARPANET 全面改用',26,{anchor:'start',weight:700,fill:'#4b4134'}),{x:-180,y:130,o:y2.o,s:y2.s});
+  r+=G(Stamp('現代網際網路的生日',{size:28}),{x:30,y:230,r:-5,o:y3.o,s:y3.s});
+  c+=G(r,{o:role2*(1-role3)})}
+ if(role3>0){let r='';r+=Tx(0,-240,'別搞混',34,{weight:900});
+  r+=G(`<rect x="-220" y="-60" width="440" height="120" fill="#d7d2c7"/><rect x="-220" y="-6" width="440" height="12" fill="#fff" opacity=".9"/>`+Tx(0,-32,'網際網路 Internet',30,{weight:900})+Tx(0,36,'＝道路系統（連線與規則）',26,{weight:700}),{y:-120});
+  const w=kk(t,A[12]+.1,.6);
+  r+=G(`<rect x="-220" y="-70" width="440" height="140" fill="#fff" stroke="${C.teal}" stroke-width="4"/><rect x="-220" y="-70" width="440" height="28" fill="${C.teal}"/>`+Tx(-200,-56,'● ● ●  www',18,{anchor:'start',fill:'#fff'})+Tx(0,-6,'全球資訊網 WWW',30,{weight:900,fill:C.teal})+Tx(0,40,'＝道路上的一種服務',26,{weight:700}),{y:70,o:w});
+  r+=G(Tx(0,0,'1989・柏納茲-李・CERN 提出',26,{weight:800,fill:C.red}),{y:200,o:kk(t,A[12]+.6,.5)});
+  c+=G(r,{o:role3})}
+ h+=G(c,{x:270,y:320,r:-1.5,o:cin,id:'leftcard'});
+ // network
+ const nin=kk(t,A[2]-.4,.8),dim=1-.45*kk(t,A[7]+.3,.6)*(1-kk(t,A[11],.6));
+ const road=kk(t,A[11]+.4,.8);
+ const brk=A[5]+.35,broken=t>brk;
+ let n='';
+ EDGES.forEach(([a,b])=>{const [x1,y1]=N[a],[x2,y2]=N[b];const isCD=a==='C'&&b==='D';
+  if(road>0)n+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#8d877c" stroke-width="${lerp(5,30,road)}" stroke-linecap="round" opacity="${road}"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#fff" stroke-width="3" stroke-dasharray="14 14" opacity="${road}"/>`;
+  if(isCD&&broken&&road<1){const mx=(x1+x2)/2,my=(y1+y2)/2;const g=6+16*kk(t,brk,.3);
+   n+=`<line x1="${x1}" y1="${y1}" x2="${mx-g}" y2="${my}" stroke="${C.red}" stroke-width="5" opacity="${1-road}"/><line x1="${mx+g}" y1="${my}" x2="${x2}" y2="${y2}" stroke="${C.red}" stroke-width="5" opacity="${1-road}"/>`;
+   const q=pop(t,brk,.3);n+=G(`<path d="M-18 -18 L18 18 M18 -18 L-18 18" stroke="${C.red}" stroke-width="9" stroke-linecap="round"/>`+Tx(0,-44,'斷線',26,{fill:C.red,weight:900}),{x:mx,y:my,o:q.o*(1-road),s:q.s})}
+  else if(road<1)n+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${C.ink}" stroke-width="5" opacity="${(1-road)*.85}"/>`;});
+ // detour highlight
+ const det=kk(t,brk+.2,.5)*(1-kk(t,A[7],.5));
+ if(det>0){const pts=['S','B','E','D'].map(k=>N[k]);n+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${C.mustard}" stroke-width="12" stroke-dasharray="4 14" stroke-linecap="round" opacity="${det}"/>`;n+=G(Tx(0,0,'繞道！',30,{weight:900,fill:'#9a6510'}),{x:1070,y:600,o:det})}
+ Object.entries(N).forEach(([k,[x,y]])=>{const lbl=k==='S'?'起點':k==='D'?'終點':'';n+=G(Router(lbl,{c:k==='S'||k==='D'?C.red:C.teal}),{x,y})});
+ // packets
+ const word=['網','路','你','好'];
+ const split=kk(t,A[3]+.2,.8);
+ const pa=[A[4]+.8,A[4]+1.4,brk+.35,brk+.85];
+ const avail=Math.max(1.6,Math.min(3.2,A[5]-A[4]-1.8));
+ const dav=Math.max(1.2,Math.min(2.8,A[6]-brk-1.2));
+ const dur=[avail*1.25,avail*.8,dav*.9,dav];
+ const routes=[['S','A','F','D'],['S','A','C','D'],['S','B','E','D'],['S','B','E','D']];
+ const arrive=pa.map((s,i)=>s+dur[i]);
+ const order=[0,1,2,3].sort((a,b)=>arrive[a]-arrive[b]);
+ const sortP=kk(t,A[6]+.4,1.0),merge=kk(t,A[6]+1.7,.6);
+ const [Sx,Sy]=N.S,[Dx,Dy]=N.D;
+ if(split<1&&nin>0){n+=G(`<rect x="-150" y="-40" width="300" height="80" fill="${C.paper}" stroke="${C.mustard}" stroke-width="4" filter="url(#shadow)"/>`+Tx(0,2,'網路你好',40,{weight:900}),{x:Sx,y:Sy-110,o:(1-split)*kk(t,A[2]+.4,.5)})}
+ if(split>0&&merge<1)word.forEach((ch,i)=>{let x,y;const home=[Sx-105+i*70,Sy-110];
+   if(t<pa[i]){x=home[0];y=home[1]}
+   else if(t<arrive[i]){const p=ease(clamp((t-pa[i])/dur[i]));[x,y]=polyAt(routes[i].map(k=>N[k]),p);y-=48;}
+   else{const slotA=order.indexOf(i),slotB=i;const sl=lerp(slotA,slotB,sortP);x=Dx+90+sl*0;y=Dy-210+sl*0;x=Dx-105+sl*70;y=Dy-120-(sortP>0&&sortP<1?Math.sin(sortP*Math.PI)*40*(slotA!==slotB?1:0):0)}
+   const lab=t>=A[4]+.2;n+=G(Slip(ch,i+1,{tag:lab}),{x,y,o:split*(1-merge)})});
+ if(merge>0){n+=G(`<rect x="-150" y="-40" width="300" height="80" fill="${C.paper}" stroke="${C.green}" stroke-width="5" filter="url(#shadow)"/>`+Tx(0,2,'網路你好 ✓',40,{weight:900,fill:C.green}),{x:Dx,y:Dy-120,o:merge*(1-kk(t,A[11],.5))})}
+ const ord=pop(t,A[6]+.2);if(merge<1&&t>arrive[order[3]])n+=G(Tx(0,0,'抵達順序亂了 → 依編號排回',26,{weight:800,fill:'#9a6510'}),{x:Dx-10,y:Dy-200,o:ord.o*(1-merge)});
+ // WWW pages riding on roads
+ const www=kk(t,A[12]+.3,.7);
+ if(www>0){const pages=[['A',-10,-95],['C',0,-95],['D',0,-100],['B',0,95]];
+  pages.forEach(([k,dx,dy],i)=>{const [x,y]=N[k];const q=pop(t,A[12]+.3+i*.25);n+=G(`<rect x="-80" y="-50" width="160" height="100" fill="#fff" stroke="${C.teal}" stroke-width="4" filter="url(#shadow)"/><rect x="-80" y="-50" width="160" height="22" fill="${C.teal}"/>`+Tx(-70,-39,'● ● ●',12,{anchor:'start',fill:'#fff'})+`<rect x="-62" y="-14" width="124" height="10" fill="#c9d8da"/><rect x="-62" y="4" width="90" height="10" fill="#c9d8da"/>`+Tx(0,32,'網頁',22,{weight:800,fill:C.teal}),{x:x+dx,y:y+dy,o:q.o,s:q.s})});
+  const lk=kk(t,A[14]-.1,1.2);
+  [[N.A[0]+70,N.A[1]-95,N.C[0]-80,N.C[1]-95],[N.C[0]+80,N.C[1]-95,N.D[0]-80,N.D[1]-100],[N.A[0],N.A[1]-40,N.B[0],N.B[1]+45]].forEach((l,i)=>{const p=clamp(lk*1.5-i*.25);if(p>0){const [x1,y1,x2,y2]=l;const mx=(x1+x2)/2,my=Math.min(y1,y2)-70;n+=`<path d="M${x1} ${y1} Q${mx} ${my} ${lerp(x1,x2,p)} ${lerp(y1,y2,p)}" fill="none" stroke="${C.teal}" stroke-width="4" stroke-dasharray="8 8" marker-end="url(#arrow)"/>`}});
+  n+=G(Tx(0,0,'超連結把網頁串起來',28,{weight:900,fill:C.teal}),{x:1210,y:618,o:kk(t,A[14]+.3,.5)})}
+ if(road>0)n+=G(Tx(0,0,'網際網路＝道路',30,{weight:900,fill:'#5a5448'}),{x:690,y:600,o:road});
+ h+=G(n,{o:nin*dim,id:'network'});
+ return h}
+// --- scene 3: Taiwan timeline + comparison ----------------------------------------------
+const TW=[[121.5,25.3],[121.9,25.1],[121.85,24.6],[121.6,24],[121.4,23.2],[121,22.6],[120.85,21.9],[120.7,22.3],[120.3,22.6],[120.1,23],[120.15,23.6],[120.4,24.2],[120.75,24.7],[121.05,25.05]];
+function s3(t,A,E,sc){let h='';
+ const MP=(lon,lat)=>[(lon-119.8)*130,(25.5-lat)*134];
+ const tin=kk(t,sc.start+.2,.8);
+ let tw=`<path d="M${TW.map(p=>MP(...p).join(' ')).join(' L')}Z" fill="#7aa36d" stroke="${C.ink}" stroke-width="4" filter="url(#shadow)"/>`;
+ tw+=`<path d="M${TW.map(p=>MP(...p).join(' ')).join(' L')}Z" fill="url(#lines)"/>`;
+ const uni=[[121.54,25.02],[120.99,24.79],[120.68,24.12],[120.22,23],[121.6,23.97]];
+ const ul=kk(t,A[1]+.3,.8);
+ if(ul>0){uni.forEach((u,i)=>{const [x,y]=MP(...u);tw+=G(`<circle r="11" fill="${C.mustard}" stroke="${C.ink}" stroke-width="3"/>`,{x,y,o:clamp(ul*2-i*.2)})});
+  for(let i=1;i<uni.length;i++){const [x1,y1]=MP(...uni[0]),[x2,y2]=MP(...uni[i]);tw+=Line(x1,y1,x2,y2,clamp(ul*1.5-.3),{stroke:C.ink,w:3,dash:'6 6'})}}
+ const intl=kk(t,A[2]+.4,.9);
+ if(intl>0){const [x0,y0]=MP(121.54,25.02);tw+=`<path d="M${x0} ${y0} C ${x0+50} ${y0-70}, ${x0+90} ${y0-85}, ${x0+110} ${y0-85}" fill="none" stroke="${C.red}" stroke-width="5" stroke-dasharray="${300*intl} 400" marker-end="url(#arrow)"/>`;tw+=G(Tx(0,0,'→ 美國',24,{weight:900,fill:C.red,anchor:'start'}),{x:x0+118,y:y0-90,o:intl})}
+ h+=G(G(tw,{x:-10,y:20,s:.95}),{x:40-30*(1-tin),y:30,o:tin,id:'taiwan'});
+ // timeline
+ const X=yr=>440+(yr-1988)*37.5;
+ const lin=kk(t,A[0]+.2,1.0);
+ let tl=Line(400,215,1700,215,lin,{stroke:C.ink,w:6});
+ [1990,1995,2000,2005,2010,2015,2020].forEach(y=>{if(lin>(X(y)-400)/1300)tl+=`<line x1="${X(y)}" y1="205" x2="${X(y)}" y2="225" stroke="${C.ink}" stroke-width="4"/>`+Tx(X(y),246,y,20,{weight:700,fill:'#5a4f40'})});
+ const cards=[
+  {yr:1990,a:1,cx:476,up:1,t1:'1990',t2:'TANet 台灣學術網路',t3:'教育部建立',c:C.teal},
+  {yr:1991.9,a:2,cx:470,up:0,t1:'1991-12',t2:'64 kbps 連美國',t3:'第一條國際連線',c:C.red},
+  {yr:1995.3,a:4,cx:684,up:1,t1:'1995',t2:'HiNet 撥接商轉',t3:'嗶—嘰嘰—',c:C.mustard},
+  {yr:1995.7,a:6,cx:690,up:0,t1:'1995',t2:'PTT 上線',t3:'台大學生架設',c:'#5b4a8a'},
+  {yr:1999,a:7,cx:905,up:0,t1:'1999',t2:'ADSL',t3:'不再占用電話',c:C.blue},
+  {yr:2007,a:8,cx:1150,up:1,t1:'2007',t2:'光纖進入家庭',t3:'光世代',c:C.green},
+  {yr:2014.4,a:9,cx:1393,up:0,t1:'2014-05',t2:'4G 開台',t3:'',c:C.red},
+  {yr:2020.5,a:9.5,cx:1600,up:1,t1:'2020-06',t2:'5G 開台',t3:'',c:C.red}];
+ cards.forEach(k=>{const at=Number.isInteger(k.a)?A[k.a]+.2:A[Math.floor(k.a)]+(E[Math.floor(k.a)]-A[Math.floor(k.a)])*.5;const q=pop(t,at,.5);if(q.o<=0)return;
+  const y=k.up?92:345,x=k.cx;const conn=`<line x1="${X(k.yr)}" y1="215" x2="${x}" y2="${k.up?y+62:y-62}" stroke="${k.c}" stroke-width="3"/><circle cx="${X(k.yr)}" cy="215" r="9" fill="${k.c}"/>`;
+  tl+=G(conn,{o:q.o});
+  tl+=G(Paper(204,124,{tape:false})+`<rect x="-102" y="-62" width="204" height="10" fill="${k.c}"/>`+Tx(0,-24,k.t1,30,{weight:900,fill:k.c})+Tx(0,12,k.t2,24,{weight:900})+(k.t3?Tx(0,42,k.t3,21,{weight:700,fill:'#4b4134'}):''),{x,y,r:k.up?-1.5:1.5,o:q.o,s:q.s})});
+ const pocket=pop(t,A[10]+.2);
+ tl+=G(`<rect x="-22" y="-38" width="44" height="76" rx="8" fill="#262321"/><rect x="-17" y="-30" width="34" height="56" fill="#9fd3a8"/>`+Tx(36,0,'從桌上到口袋',24,{anchor:'start',weight:900,fill:C.red}),{x:1430,y:460,o:pocket.o*(1-kk(t,A[11]-.2,.4)),s:pocket.s});
+ // comparison chart
+ const ch=kk(t,A[11]-.1,.7);
+ if(ch>0){let c='';c+=Tx(400,450,'同樣下載 5 MB：以標稱速率換算（非實測）',26,{anchor:'start',weight:900});
+  const rows=[['撥接 56 kbps',714,'約 12 分鐘',C.mustard],['ADSL 2 Mbps',20,'約 20 秒',C.blue],['光纖 100 Mbps',.4,'約 0.4 秒',C.green]];
+  const W=s=>(Math.log10(s)+1)/4*700;
+  rows.forEach(([n,s,lbl,col],i)=>{const y=488+i*44;const p=kk(t,A[12]+.1+i*.5,.9);c+=Tx(580,y,n,24,{anchor:'end',weight:800});c+=`<rect x="595" y="${y-16}" width="${W(s)*p}" height="32" fill="${col}"/>`;if(p>.95)c+=Tx(607+W(s),y,lbl,26,{anchor:'start',weight:900,fill:C.ink})});
+  c+=Tx(595,618,'長條長度：對數刻度（每格 ×10）',16,{anchor:'start',weight:600,fill:'#5a4f40'});
+  h+=G(c,{o:ch,id:'chart'});}
+ const n1=pop(t,A[13]+.1),n2=pop(t,A[14]+.1);
+ h+=G(Paper(250,96,{fill:'#f6e7a8',tape:false})+Tx(0,-16,'光纖',24,{weight:900,fill:C.green})+Tx(0,18,'要拉線到家',22,{weight:700}),{x:1560,y:472,r:3,o:n1.o,s:n1.s,id:'note1'});
+ h+=G(Paper(250,96,{fill:'#f6e7a8',tape:false})+Tx(0,-16,'行動 4G／5G',24,{weight:900,fill:C.red})+Tx(0,18,'看基地台與訊號',22,{weight:700}),{x:1560,y:578,r:-2,o:n2.o,s:n2.s,id:'note2'});
+ h=G(tl,{o:1,id:'timeline'})+h;
+ return h}
+// --- scene 4: Matsu cable case ------------------------------------------------------------
+function s4(t,A,E,sc){let h='';
+ const sin=kk(t,sc.start+.1,.8);
+ const isle=(pts,fill)=>`<path d="M${pts.map(p=>p.join(' ')).join(' L')}Z" fill="${fill}" stroke="${C.ink}" stroke-width="4" filter="url(#shadow)"/>`;
+ let s=`<rect x="0" y="0" width="1728" height="640" fill="${C.sea}" opacity=".55"/>`;
+ for(let i=0;i<7;i++)s+=`<path d="M${60+i*230} ${80+(i%3)*190} q20 -10 40 0 t40 0" stroke="#5f858c" stroke-width="3" fill="none" opacity=".6"/>`;
+ s+=isle([[180,140],[260,110],[330,150],[300,200],[220,210]],'#9cb889')+isle([[350,230],[400,215],[430,250],[385,275]],'#9cb889');
+ s+=Tx(300,80,'馬祖',38,{weight:900})+isle([[1180,200],[1460,140],[1640,240],[1600,600],[1250,640],[1120,420]],'#7aa36d')+Tx(1420,420,'台灣本島',40,{weight:900});
+ s+=Tx(860,620,'示意圖・非實際比例',18,{weight:600,fill:'#3e5d63'});
+ const c2=[[320,200],[640,300],[960,330],[1180,300]],c3=[[400,265],[700,390],[980,420],[1150,390]];
+ const pathD=p=>`M${p[0].join(' ')} C${p[1].join(' ')} ${p[2].join(' ')} ${p[3].join(' ')}`;
+ const bez=(p,u)=>{const m=1-u;return[0,1].map(k=>m*m*m*p[0][k]+3*m*m*u*p[1][k]+3*m*u*u*p[2][k]+u*u*u*p[3][k])};
+ const b2=A[2]+(E[2]-A[2])*.45,b3=A[2]+(E[2]-A[2])*.8;
+ const fix=A[8]+(E[8]-A[8])*.7,fixed=t>fix;
+ const hl=kk(t,A[1]+.2,.6);
+ [[c2,b2,'台馬二號','2/2 斷'],[c3,b3,'台馬三號','2/8 斷']].forEach(([p,b,name,d],i)=>{const cut=t>b&&!fixed;
+  s+=`<path d="${pathD(p)}" fill="none" stroke="${cut?'#b88':fixed&&t>b?C.green:C.ink}" stroke-width="${6+4*hl}"${cut?' stroke-dasharray="18 14"':''}/>`;
+  const lp=bez(p,.62);s+=G(Tx(0,0,name,24,{weight:900,fill:'#24363a'}),{x:lp[0],y:lp[1]+(i?40:-34),o:hl});
+  if(t>b){const q=pop(t,b,.35);const m=bez(p,.42);s+=G(`<path d="M-20 -20 L20 20 M20 -20 L-20 20" stroke="${C.red}" stroke-width="10" stroke-linecap="round"/>`+G(Stamp(d,{size:26}),{y:i?58:-56}),{x:m[0],y:m[1],o:q.o*(1-kk(t,fix,.5)),s:q.s})}});
+ // microwave arc
+ const mw=kk(t,A[3]+.2,.6);
+ const arc=[[300,110],[600,-40],[1000,-20],[1290,170]];
+ if(mw>0){s+=`<path d="${pathD(arc)}" fill="none" stroke="${C.mustard}" stroke-width="4" stroke-dasharray="6 10" opacity="${mw}"/>`;
+  [[300,110],[1290,170]].forEach(([x,y])=>{s+=G(`<path d="M-14 0 L0 -70 L14 0 Z M-8 -30 L8 -30" stroke="${C.ink}" stroke-width="4" fill="none"/>`+[1,2,3].map(r=>`<path d="M${-12-r*10} ${-70-r*6} q${12+r*10} ${-14-r*6} ${24+r*20} 0" stroke="${C.mustard}" stroke-width="3" fill="none" opacity="${.5+.5*Math.sin(t*4-r)}"/>`).join(''),{x,y,o:mw})});
+  s+=G(Tx(0,0,'微波備援',28,{weight:900,fill:'#8a5a0a'}),{x:800,y:40,o:mw})}
+ const rd=pop(t,A[4]+.2),rd2=pop(t,A[4]+(E[4]-A[4])*.55);
+ s+=G(`<rect x="-120" y="-24" width="240" height="48" fill="#5d5a54"/><rect x="-120" y="-3" width="240" height="6" fill="#fff" opacity=".8"/>`+Tx(0,46,'海纜＝高速公路 ×2',24,{weight:900}),{x:760,y:540,o:rd.o*(1-kk(t,A[6],.5)),s:rd.s});
+ s+=G(`<rect x="-60" y="-8" width="120" height="16" fill="#8d877c"/>`+Tx(0,34,'微波＝一條小路',24,{weight:900,fill:'#8a5a0a'}),{x:800,y:110,o:rd2.o*(1-kk(t,A[8],.5)),s:rd2.s});
+ // traffic dots
+ const nDots=26;for(let i=0;i<nDots;i++){const ph=((t*.22+i/nDots)%1);
+  let route=i%2?c3:c2,useArc=false,cut2=t>b2&&!fixed,cut3=t>b3&&!fixed;
+  if((i%2===0&&cut2)||(i%2===1&&cut3))useArc=true;
+  if(useArc&&t<A[3]+.2){continue}
+  let x,y;if(useArc){if(mw<=0)continue;const slow=((t*.06+i/nDots)%1);const q=bez(arc,slow);x=q[0];y=q[1];
+   const jam=kk(t,A[5],.8)*(1-kk(t,fix,.6));if(jam>0&&i>8){const k=(i-8)/(nDots-8);x=lerp(x,330+k*170,jam);y=lerp(y,128-k*18,jam)}}
+  else{const q=bez(route,ph);x=q[0];y=q[1]}
+  s+=`<rect x="${(x-7).toFixed(1)}" y="${(y-7).toFixed(1)}" width="14" height="14" fill="${C.mustard}" stroke="${C.ink}" stroke-width="2"/>`}
+ // slow services
+ const sv=kk(t,A[7]+.1,.6)*(1-kk(t,fix,.5));
+ if(sv>0){[['影片','M-12 -16 L16 0 L-12 16Z'],['刷卡','M-22 -14 H22 V14 H-22Z M-22 -4 H22'],['視訊','M-20 -12 H8 V12 H-20Z M8 -4 L22 -12 V12 L8 4']].forEach(([n,d],i)=>{const q=pop(t,A[7]+.15+i*.35);s+=G(`<circle r="46" fill="${C.paper}" stroke="${C.ink}" stroke-width="3" filter="url(#shadow)"/><path d="${d}" fill="none" stroke="${C.ink}" stroke-width="4"/>`+Tx(0,70,n+'：好慢…',22,{weight:900,fill:C.red}),{x:170+i*150,y:515,o:q.o*sv,s:q.s})})}
+ // calendar + repair
+ const cal=pop(t,A[8]+.1);
+ if(cal.o>0){const flip=kk(t,A[8]+.4,1.4);const day=Math.round(lerp(0,50,flip));
+  s+=G(Paper(220,170,{fill:'#fff',tape:false})+`<rect x="-110" y="-85" width="220" height="44" fill="${C.red}"/>`+Tx(0,-62,'2023 年 2 月起',22,{fill:'#fff',weight:900})+Tx(0,0,'第 '+day+' 天',44,{weight:900})+Tx(0,52,'約 50 天後修復',22,{weight:800,fill:C.green}),{x:840,y:250,o:cal.o*(1-kk(t,A[9]+.2,.5)),s:cal.s,id:'calendar'});
+  const shp=kk(t,A[8]+.2,1.6);const sp=bez(c2,.42);s+=G(`<path d="M-60 0 L60 0 L44 26 L-44 26Z" fill="#c9533f" stroke="${C.ink}" stroke-width="3"/><rect x="-20" y="-28" width="40" height="28" fill="${C.paper}" stroke="${C.ink}" stroke-width="3"/>`+Tx(0,48,'海纜修復船',20,{weight:900}),{x:lerp(sp[0]-260,sp[0],shp),y:sp[1]+70,o:shp*(1-kk(t,A[9]+.2,.5))})}
+ const les=pop(t,A[10]+.2);
+ s+=G(Paper(760,130,{fill:'#f3ecd9'})+Tx(0,-20,'繞道的前提：',30,{weight:900,fill:C.red})+Tx(0,26,'真的還有「別條路」，而且容量夠大',32,{weight:900}),{x:780,y:250,r:-1,o:les.o,s:les.s,id:'lesson'});
+ h+=G(s,{o:sin,id:'sea'});return h}
+// --- scene 5: outlook -----------------------------------------------------------------------
+function s5(t,A,E,sc){let h='';
+ const sin=kk(t,sc.start+.1,.8);
+ const recap=kk(t,A[9]-.1,.7);
+ let s='';
+ // orbit
+ const orb=kk(t,A[0]+.2,.8)*(1-kk(t,A[5]-.1,.6));
+ if(orb>0){s+=`<ellipse cx="560" cy="560" rx="520" ry="430" fill="none" stroke="#6b5d47" stroke-width="3" stroke-dasharray="8 10" opacity="${orb}"/>`;
+  s+=`<path d="M120 640 Q560 480 1000 640Z" fill="#7aa36d" stroke="${C.ink}" stroke-width="4" opacity="${orb}"/>`+G(Tx(0,0,'台灣・馬祖',28,{weight:900}),{x:560,y:610,o:orb});
+  for(let i=0;i<3;i++){const ang=Math.PI*(1.15+.22*i)+(t-sc.start)*.05;const x=560+520*Math.cos(ang),y=560+430*Math.sin(ang);
+   s+=G(`<rect x="-16" y="-12" width="32" height="24" fill="#cfd6d8" stroke="${C.ink}" stroke-width="3"/><rect x="-56" y="-7" width="36" height="14" fill="${C.blue}"/><rect x="20" y="-7" width="36" height="14" fill="${C.blue}"/>`,{x,y,o:orb});
+   const beam=kk(t,A[1]+.1+i*.2,.5)*orb;if(beam>0)s+=`<line x1="${x}" y1="${y+14}" x2="${560+(i-1)*120}" y2="560" stroke="${C.mustard}" stroke-width="4" stroke-dasharray="6 8" opacity="${beam}"/>`}
+  s+=G(`<rect x="-250" y="-46" width="500" height="92" fill="${C.teal}"/>`+Tx(0,-14,'已公布・數位部（2023 起）',24,{fill:'#fff',weight:900})+Tx(0,20,'低軌衛星韌性驗證計畫',26,{fill:'#fff',weight:900}),{x:560,y:60,o:pop(t,A[0]+.4).o*orb})}
+ // stats
+ const st=kk(t,A[2]-.1,.6)*(1-recap);
+ if(st>0){let c=Paper(620,420,{fill:'#f3ecd9',tapeX:180});c+=Tx(0,-170,'台灣網路現況（2025）',32,{weight:900});
+  const rows=[[88.75,'個人上網率',C.teal,A[2]],[40.76,'5G 上網率',C.red,A[3]],[43.19,'用過生成式 AI',C.mustard,A[4]]];
+  rows.forEach(([v,n,col,a],i)=>{const p=kk(t,a+.2,1.0),y=-90+i*95;c+=Tx(-270,y,n,26,{anchor:'start',weight:800});c+=`<rect x="-270" y="${y+18}" width="440" height="28" fill="#ddd2bb"/><rect x="-270" y="${y+18}" width="${440*v/100*p}" height="28" fill="${col}"/>`;if(p>0)c+=Tx(280,y+30,(v*p).toFixed(2)+'%',36,{anchor:'end',weight:900,fill:col})});
+  c+=Tx(0,186,'來源：TWNIC《2025 台灣網路報告》・長條同為 0–100%',18,{weight:600,fill:'#5a4f40'});
+  s+=G(c,{x:1390,y:250,r:1,o:st,id:'stats'})}
+ // open questions
+ const oq=kk(t,A[5]-.1,.6)*(1-recap);
+ if(oq>0){let c='';
+  const g6=pop(t,A[5]+.1);c+=G(`<rect x="-140" y="-60" width="280" height="120" fill="${C.mustard}"/>`+Tx(0,-26,'研究中',26,{fill:'#fff',weight:900})+Tx(0,20,'6G',48,{fill:'#fff',weight:900}),{x:190,y:280,o:g6.o,s:g6.s});
+  const tri=pop(t,A[6]+.2);c+=G(`<rect x="-230" y="-70" width="460" height="140" fill="#efe6d2aa" stroke="${C.gray}" stroke-width="4" stroke-dasharray="12 8"/>`+Tx(0,-38,'推測・未解',24,{fill:'#5f574a',weight:900})+Tx(0,4,'海纜＋微波＋衛星',32,{weight:900})+Tx(0,44,'互相備援',28,{weight:800}),{x:620,y:280,o:tri.o,s:tri.s});
+  const dd=pop(t,A[7]+.2);c+=G([0,1,2,3,4].map(i=>`<circle cx="${i*44-88}" cy="-14" r="13" fill="${i===4?'#c9bfa8':C.ink}"/><rect x="${i*44-100}" y="2" width="24" height="30" rx="8" fill="${i===4?'#c9bfa8':C.ink}"/>`).join('')+Tx(0,66,'每個人都用得上、用得好？',28,{weight:900}),{x:300,y:480,s:1.15*dd.s,o:dd.o});
+  const un=pop(t,A[8]+.1);c+=G(Stamp('還沒解完的題目',{size:30}),{x:780,y:500,r:-4,o:un.o,s:un.s});
+  s+=G(c,{o:oq,id:'questions'})}
+ // recap: LO -> cut / route / reassemble
+ if(recap>0){let c='';const lo=pop(t,A[9]+.1);c+=G(Tx(0,0,'L O',150,{weight:900,fill:C.red,ls:14}),{x:300,y:300,o:lo.o,s:lo.s});
+  c+=Tx(560,300,'→',90,{weight:900,fill:C.gray});
+  const words=[['切開',C.mustard],['找路',C.teal],['拼回來',C.green]];
+  words.forEach(([w,col],i)=>{const q=pop(t,A[11]+i*.55);c+=G(Paper(280,160,{tape:i===1})+Tx(0,0,w,64,{weight:900,fill:col}),{x:820+i*320,y:300+(i%2?24:-16),r:i%2?2:-2,o:q.o,s:q.s})});
+  const core=pop(t,A[10]+.2);c+=G(Tx(0,0,'網路的核心想法，從 1969 到今天沒變',32,{weight:900}),{x:1140,y:120,o:core.o});
+  s+=G(c,{o:recap,id:'recap'})}
+ h+=G(s,{o:sin});return h}
+const SCENES={s1,s2,s3,s4,s5};
+// --- player core ----------------------------------------------------------------------------
+function scale(){if(!project)return;const cs=getComputedStyle($('shell')),inner=$('shell').clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);const s=exporting?1:Math.min(1,inner/project.width);$('stage').style.transform='scale('+s+')';$('viewport').style.width=project.width*s+'px';$('viewport').style.height=project.height*s+'px'}
+function scenes(){return project.variants[locale].scenes}
+function currentScene(t){return scenes().find(s=>t>=s.start&&t<s.end)||scenes().at(-1)}
+function setAudio(){audio.pause();const mix=project.variants[locale].mix;audioReady=!!mix;if(mix)audio.src=new URL('../'+mix,location.href).href;else audio.removeAttribute('src');audio.load()}
+function chapters(){const sel=$('chapters');sel.replaceChildren();scenes().forEach((s,i)=>{const o=document.createElement('option');o.value=s.start;o.textContent=s.section==='credit'?'片尾':(i+1)+'. '+s.title;sel.append(o)})}
+function draw(){const t=frame/project.fps,sc=currentScene(t),credit=sc.section==='credit',idx=scenes().indexOf(sc)+1;
+ const local=t-sc.start,out=clamp((sc.end-t)/.45),inn=kk(t,sc.start,.5);
+ $('eyebrow').textContent=credit?'':CH[idx]||'';$('heading').textContent=sc.title||'';$('subheading').textContent=sc.screen||'';
+ for(const id of ['eyebrow','heading','subheading','visual'])$(id).style.display=credit?'none':'block';
+ $('credit').style.display=credit?'flex':'none';
+ $('heading').style.opacity=inn;$('heading').style.transform=`translateY(${-(1-inn)*14}px)`;$('subheading').style.opacity=kk(t,sc.start+.25,.5);
+ $('visual').style.opacity=out;
+ if(!credit){$('layer').innerHTML=SCENES[sc.id](t,sc.anchors,sc.anchor_ends,sc)}else $('layer').innerHTML='';
+ const cue=project.variants[locale].subtitles.cues.find(c=>t>=c.start&&t<c.end);
+ $('caption').style.display=cue&&captionOn&&!credit?'flex':'none';$('caption1').textContent=cue?.text['zh-TW']||'';$('caption2').textContent=cue?.text[subs]||'';$('caption2').lang=subs;
+ $('progress-mark').style.width=100*t/project.duration+'%';$('seek').value=frame;$('time').textContent=fmt(t)+' / '+fmt(project.duration);$('chapters').value=sc.start}
+const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+async function seekToFrame(n,language=locale){if(!project.variants[language])throw Error('Unknown locale');if(language!==locale){locale=language;$('locale').value=locale;chapters();setAudio()}frame=Math.max(0,Math.min(Math.round(project.duration*project.fps)-1,Math.round(n)));draw();if(!exporting&&audioReady&&Math.abs(audio.currentTime-frame/project.fps)>.15)audio.currentTime=frame/project.fps;return frame}
+function pause(){playing=false;audio.pause();$('play').textContent='播放'}
+async function play(){if(frame>=project.duration*project.fps-1)await seekToFrame(0);playing=true;last=performance.now();$('play').textContent='暫停';if(audioReady){audio.currentTime=frame/project.fps;try{await audio.play()}catch{pause();$('feedback').textContent='音軌無法播放，請檢查音檔或瀏覽器權限。';return}}requestAnimationFrame(tick)}
+function tick(now){if(!playing)return;const next=audioReady?Math.floor(audio.currentTime*project.fps):frame+(now-last)*project.fps/1000;last=now;if(next>=project.duration*project.fps){seekToFrame(project.duration*project.fps-1);pause();return}frame=next;draw();requestAnimationFrame(tick)}
+audio.addEventListener('ended',()=>{if(playing){seekToFrame(project.duration*project.fps-1);pause()}});
+function bounds(){if($('visual').style.display==='none')return[];const b=$('stage').getBoundingClientRect(),s=b.width/project.width;return[...document.querySelectorAll('#layer .qa')].map(el=>{const r=el.getBoundingClientRect();return{id:el.id,x:(r.x-b.x)/s,y:(r.y-b.y)/s,width:r.width/s,height:r.height/s,container:'visual',overlapGroup:'collage'}})}
+window.lesson={ready:async()=>{await loaded;await document.fonts.ready},seekToFrame,bounds,getProject:()=>project};
+const loaded=(async()=>{const res=await fetch('../project.json');if(!res.ok)throw Error('Cannot load project.json');project=await res.json();if(!project.variants[locale])throw Error('Unknown locale');
+ $('stage').style.width=project.width+'px';$('stage').style.height=project.height+'px';$('seek').max=Math.round(project.duration*project.fps)-1;$('locale').value=locale;$('subs').value=subs;chapters();setAudio();scale();await document.fonts.ready;await seekToFrame(0);})();
+$('play').onclick=()=>playing?pause():play();$('replay').onclick=async()=>{pause();await seekToFrame(0);await play()};
+$('seek').oninput=()=>{pause();seekToFrame(Number($('seek').value))};
+$('locale').onchange=()=>{const t=frame/project.fps,old=currentScene(t),off=t-old.start,id=old.id;pause();locale=$('locale').value;chapters();setAudio();const ns=scenes().find(s=>s.id===id);seekToFrame(Math.min(ns.end-.05,ns.start+off)*project.fps)};
+$('subs').onchange=()=>{subs=$('subs').value;draw()};
+$('chapters').onchange=()=>{pause();seekToFrame(Number($('chapters').value)*project.fps)};
+$('captions').onclick=()=>{captionOn=!captionOn;$('captions').textContent=captionOn?'字幕開啟':'字幕關閉';$('captions').setAttribute('aria-pressed',String(captionOn));draw()};
+document.addEventListener('keydown',e=>{if(e.target.closest('select,input'))return;if(e.code==='Space'){e.preventDefault();playing?pause():play()}else if(e.code==='ArrowRight'){pause();seekToFrame(frame+150)}else if(e.code==='ArrowLeft'){pause();seekToFrame(frame-150)}});
+window.addEventListener('resize',scale);
+// --- interactive lab: break links, then route a packet (BFS) --------------------------------
+const LN={S:[90,190],A:[300,80],B:[300,300],F:[560,50],C:[560,190],E:[560,330],D:[800,190]};
+let LE=EDGES.map(([a,b])=>({a,b,broken:false,backup:false})),labPath=null,labAnim=0;
+function labDraw(){const svg=$('lab');let s='';
+ LE.forEach((e,i)=>{const [x1,y1]=LN[e.a],[x2,y2]=LN[e.b];const on=labPath&&labPath.some((n,k)=>k&&((labPath[k-1]===e.a&&n===e.b)||(labPath[k-1]===e.b&&n===e.a)));
+  const curve=e.backup?`M${x1} ${y1} Q${(x1+x2)/2} ${-60} ${x2} ${y2}`:`M${x1} ${y1} L${x2} ${y2}`;
+  s+=`<g class="edge" data-i="${i}" role="button" tabindex="0" aria-label="${e.a} 到 ${e.b} 的線路，${e.broken?'已斷線':'正常'}"><path d="${curve}" stroke="transparent" stroke-width="30" fill="none"/><path d="${curve}" stroke="${e.broken?'#c4432f':on?'#d89a2b':e.backup?'#3d6f9e':'#2a2622'}" stroke-width="${on?10:6}" fill="none" ${e.broken?'stroke-dasharray="10 10"':''}${e.backup?' stroke-dasharray="4 8"':''}/>`+(e.broken?`<text x="${(x1+x2)/2}" y="${(y1+y2)/2-10}" font-size="26" fill="#c4432f" text-anchor="middle" font-weight="900">✕</text>`:'')+`</g>`});
+ Object.entries(LN).forEach(([k,[x,y]])=>{s+=`<circle cx="${x}" cy="${y}" r="24" fill="${k==='S'||k==='D'?'#c4432f':'#1d6b73'}"/><text x="${x}" y="${y+48}" font-size="20" text-anchor="middle" font-weight="800" fill="#2a2622">${k==='S'?'起點':k==='D'?'終點':k}</text>`});
+ if(labPath&&labAnim>0){const pts=labPath.map(k=>LN[k]);const [x,y]=polyAt(pts,labAnim);s+=`<rect x="${x-14}" y="${y-14}" width="28" height="28" fill="#d89a2b" stroke="#2a2622" stroke-width="3"/>`}
+ svg.innerHTML=s;svg.querySelectorAll('.edge').forEach(g=>{const fn=()=>{const e=LE[g.dataset.i];e.broken=!e.broken;labPath=null;labAnim=0;$('feedback').textContent=`${e.a}–${e.b} 線路${e.broken?'已斷線':'已修復'}。按「送出封包」看看結果。`;labDraw()};g.onclick=fn;g.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();fn()}}})}
+function route(){const adj={};LE.filter(e=>!e.broken).forEach(e=>{(adj[e.a]??=[]).push(e.b);(adj[e.b]??=[]).push(e.a)});const prev={S:null},q=['S'];while(q.length){const n=q.shift();if(n==='D')break;for(const m of adj[n]||[])if(!(m in prev)){prev[m]=n;q.push(m)}}if(!('D' in prev))return null;const p=[];for(let n='D';n;n=prev[n])p.unshift(n);return p}
+$('send').onclick=()=>{labPath=route();const fb=$('feedback');if(!labPath){labAnim=0;fb.textContent='無路可走！所有通往終點的線都斷了：這就像馬祖兩條海纜同時斷裂，需要另一條備援線路（微波、衛星）才能恢復通訊。';labDraw();return}
+ const broken=LE.filter(e=>e.broken).length;fb.textContent=`封包抵達！路線：${labPath.map(k=>k==='S'?'起點':k==='D'?'終點':k).join(' → ')}（${labPath.length-1} 段）。`+(broken?`即使有 ${broken} 條線斷了，封包仍能繞道。`:'試著切斷幾條線再送一次。');
+ const t0=performance.now();const step=now=>{labAnim=Math.min(1,(now-t0)/1400);labDraw();if(labAnim<1)requestAnimationFrame(step)};requestAnimationFrame(step)};
+$('isolate').onclick=()=>{LE.forEach(e=>{if(!e.backup&&(e.b==='D'||e.a==='D'))e.broken=true});labPath=null;labAnim=0;$('feedback').textContent='已切斷所有通往終點的地面線路（像馬祖的兩條海纜都斷了）。按「送出封包」看看會怎樣？';labDraw()};
+$('addbackup').onclick=()=>{if(!LE.some(e=>e.backup))LE.push({a:'A',b:'D',broken:false,backup:true});labPath=null;labAnim=0;$('feedback').textContent='加上了一條衛星備援線（藍色虛線，A → 終點）。再送一次封包試試。';labDraw()};
+$('resetlab').onclick=()=>{LE=EDGES.map(([a,b])=>({a,b,broken:false,backup:false}));labPath=null;labAnim=0;$('feedback').textContent='所有線路正常。按「送出封包」試試看。';labDraw()};
+labDraw();
+</script>
+</html>

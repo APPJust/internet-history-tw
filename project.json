@@ -1,0 +1,2348 @@
+{
+  "schema_version": 1,
+  "is_template": false,
+  "title": "從「LO」到 5G：網路演進與台灣的上網之路",
+  "content_type": "technical",
+  "learning_goal": "能用「封包交換＋繞道」解釋網路為何不怕單點故障，依序說出台灣從 TANet（1990）到 5G（2020）的關鍵轉折，並以馬祖斷纜說明此原理的限制。",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 300.0,
+  "video_locale": "zh-TW",
+  "subtitle_languages": [
+    "zh-TW",
+    "en-US",
+    "vi-VN",
+    "ja-JP"
+  ],
+  "approval": {
+    "status": "explicitly-waived",
+    "evidence": "使用者於 2026-10-17 本對話中明確指示：「不要做樣本, 直接做完!」（跳過樣片確認）。"
+  },
+  "sources": [
+    {
+      "id": "kleinrock",
+      "title": "Leonard Kleinrock, The Day the Infant Internet Uttered its First Words (UCLA)",
+      "url": "https://www.lk.cs.ucla.edu/internet_first_words.html",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "ucla",
+      "title": "UCLA Alumni, UCLA History: first host-to-host ARPANET message",
+      "url": "https://alumni.ucla.edu/ucla-history-45/",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "isoc",
+      "title": "Leiner et al., A Brief History of the Internet (Internet Society) — four hosts by end of 1969",
+      "url": "https://www2.cs.arizona.edu/classes/cs525/papers/Brief_History_of_the_Internet.pdf",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "cerfkahn",
+      "title": "Cerf & Kahn, A Protocol for Packet Network Intercommunication, IEEE Trans. Comm. COM-22(5)",
+      "url": "https://ethw.org/w/images/9/9d/Ref4_HistoryOfInformation_Cerf-Kahn_TCP-Paper.pdf",
+      "checked_at": "2026-10-17",
+      "published_at": "1974-05"
+    },
+    {
+      "id": "flagday",
+      "title": "Google Blog, Marking the birth of the modern-day Internet (NCP→TCP/IP on 1983-01-01)",
+      "url": "https://blog.google/inside-google/googlers/marking-birth-of-modern-day-internet/",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "cernweb",
+      "title": "CERN, Web History (1989 proposal; 1993-04-30 public domain)",
+      "url": "https://web30.web.cern.ch/web-history.html",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "tanet",
+      "title": "Wikipedia, TANet (1990 founding; 1991-12-03 64 kbit/s link to JvNCnet, Princeton)",
+      "url": "https://en.wikipedia.org/wiki/TANet",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "nccu",
+      "title": "政大學術集成：台灣學術網路發展相關論文",
+      "url": "https://ah.lib.nccu.edu.tw/bitstream/140.119/114941/1/781.pdf",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "hinet30",
+      "title": "ETtoday，中華電信 HiNet 30 年（1995-04 撥接商轉、1999 ADSL、2007 光世代）",
+      "url": "https://finance.ettoday.net/news/2949155",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "ptt",
+      "title": "鏡週刊，PTT 1995-09-14 於台大誕生",
+      "url": "https://www.mirrormedia.mg/story/20201120pol001",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "4g",
+      "title": "數位時代，中華電信 4G LTE 開台（2014-05-29）",
+      "url": "https://www.bnext.com.tw/article/32421/BN-ARTICLE-32421",
+      "checked_at": "2026-10-17",
+      "published_at": "2014-05-29"
+    },
+    {
+      "id": "5g",
+      "title": "科技新報，台灣進入 5G 時代（2020-06-30 開台）",
+      "url": "https://technews.tw/2020/07/01/taiwan-5g-new-life-qa/",
+      "checked_at": "2026-10-17",
+      "published_at": "2020-07-01"
+    },
+    {
+      "id": "matsu1",
+      "title": "科技新報，台馬海纜 2/2、2/8 相繼受損",
+      "url": "https://technews.tw/2023/02/17/the-submarine-cable-was-damaged-suspected-to-be-caused-by-chinese-ship/",
+      "checked_at": "2026-10-17",
+      "published_at": "2023-02-17"
+    },
+    {
+      "id": "matsu2",
+      "title": "公視新聞網，馬祖斷纜約 50 天後修復、微波備援頻寬不足",
+      "url": "https://news.pts.org.tw/article/623476",
+      "checked_at": "2026-10-17"
+    },
+    {
+      "id": "leo",
+      "title": "中央社，台灣強化網路韌性 數位部推低軌衛星 2 年計畫",
+      "url": "https://www.cna.com.tw/news/afe/202302170276.aspx",
+      "checked_at": "2026-10-17",
+      "published_at": "2023-02-17"
+    },
+    {
+      "id": "twnic",
+      "title": "TWNIC，2025 台灣網路報告（摘要）",
+      "url": "https://report.twnic.tw/2025/en/assets/download/TWNIC_TaiwanInternetReport_2025_CH_summary.pdf",
+      "checked_at": "2026-10-17",
+      "published_at": "2025-12-17"
+    },
+    {
+      "id": "cna2025",
+      "title": "中央社，2025 台灣網路報告：上網率 88.75%、5G 40.76%、生成式 AI 43.19%",
+      "url": "https://www.cna.com.tw/news/afe/202512170362.aspx",
+      "checked_at": "2026-10-17",
+      "published_at": "2025-12-17"
+    }
+  ],
+  "coverage": {
+    "origin": {
+      "summary": "1969-10-29 晚間 UCLA 經 ARPANET 傳送 LOGIN 給 SRI，只傳出 LO 即當機，約一小時後登入成功；年底 4 台主機相連。",
+      "date": "1969-10-29",
+      "precision": "day",
+      "event_type": "首次實作（第一則主機對主機訊息）",
+      "source_ids": [
+        "kleinrock",
+        "ucla",
+        "isoc"
+      ]
+    },
+    "principle": {
+      "summary": "封包交換：切成帶地址與編號的封包、各自路由、斷線繞道、終點依號重組；對照電路交換。TCP/IP 1974 提出、1983-01-01 ARPANET 全面採用；網際網路（道路）與 WWW（服務）的區別。",
+      "source_ids": [
+        "cerfkahn",
+        "flagday",
+        "cernweb"
+      ]
+    },
+    "comparison": {
+      "summary": "台灣上網世代以同一任務（下載 5 MB）與標稱速率換算比較：撥接 56 kbps≈12 分、ADSL 2 Mbps≈20 秒、光纖 100 Mbps≈0.4 秒；行動網路依訊號而定。並列優缺點：光纖需拉線、行動受基地台與訊號影響。",
+      "alternatives": [
+        "撥接（56 kbps）",
+        "ADSL（2 Mbps 級）",
+        "光纖（100 Mbps 級）",
+        "行動 4G／5G"
+      ],
+      "dimensions": [
+        "標稱下行速率",
+        "下載 5 MB 換算時間",
+        "是否占用電話線",
+        "安裝條件與移動性"
+      ],
+      "conditions": "同一任務：下載 5 MB 檔案；以各技術常見標稱速率上限換算，非實測；行動網路速率隨環境變動大，不給單一數字",
+      "time_sensitive": false,
+      "source_ids": [
+        "hinet30",
+        "4g",
+        "5g"
+      ]
+    },
+    "application": {
+      "summary": "問題：2023-02-02、02-08 台馬二號、三號海纜相繼斷裂；過程：封包改走微波備援，頻寬遠低於海纜，影片、刷卡、視訊變慢；結果：約 50 天後修復；限制：繞道需要真的有替代路徑且容量足夠。",
+      "case_type": "real",
+      "source_ids": [
+        "matsu1",
+        "matsu2"
+      ]
+    },
+    "outlook": {
+      "summary": "已公布：數位部 2023 起低軌衛星韌性驗證計畫；現況：2025 個人上網率 88.75%、5G 40.76%、生成式 AI 43.19%；研究中：6G；推測：海纜、微波、衛星多路備援與數位落差是未解問題。",
+      "claim_type": "announced",
+      "as_of": "2026-10-17",
+      "source_ids": [
+        "leo",
+        "twnic",
+        "cna2025"
+      ]
+    }
+  },
+  "variants": {
+    "zh-TW": {
+      "mix": "audio/mix-zh-TW.m4a",
+      "scenes": [
+        {
+          "id": "s1",
+          "section": "origin",
+          "start": 0.0,
+          "end": 52.325,
+          "title": "網路的第一句話",
+          "screen": "1969-10-29 · ARPANET 第一則訊息",
+          "objective": "說出網路起源的日期、地點與當時的目的",
+          "narration": "你每天滑手機、傳訊息，可是網路的第一句話，只有兩個字。一九六九年十月二十九日晚上，美國加州大學洛杉磯分校的電腦，要透過阿帕網，把「LOGIN」傳給史丹佛研究院。結果只傳出 L 和 O，系統就當機了；大約一小時後，才成功完成登入。這個計畫由美國國防部資助，目的是讓分散各地、昂貴的電腦互相連線、共享資源。到了那一年年底，阿帕網已經連起四台主機。",
+          "spoken_date": "一九六九年十月二十九日",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "開場",
+              "start": 0.0,
+              "end": 12.261
+            },
+            {
+              "name": "日期",
+              "start": 12.261,
+              "end": 14.781
+            },
+            {
+              "name": "LO 傳送",
+              "start": 14.781,
+              "end": 22.461
+            },
+            {
+              "name": "當機",
+              "start": 22.461,
+              "end": 34.944
+            },
+            {
+              "name": "四台主機",
+              "start": 34.944,
+              "end": 52.325
+            }
+          ],
+          "qa_times": [
+            3.0,
+            6.14,
+            13.01,
+            15.53,
+            18.05,
+            23.21,
+            32.25,
+            35.69,
+            38.09,
+            44.11
+          ],
+          "anchors": [
+            2.4,
+            5.54,
+            12.411,
+            14.931,
+            17.451,
+            22.611,
+            31.654,
+            35.094,
+            37.494,
+            43.514
+          ],
+          "anchor_ends": [
+            5.06,
+            8.32,
+            14.211,
+            17.451,
+            21.871,
+            26.071,
+            34.214,
+            37.494,
+            43.054,
+            47.594
+          ]
+        },
+        {
+          "id": "s2",
+          "section": "principle",
+          "start": 52.325,
+          "end": 127.576,
+          "title": "切開、找路、拼回來",
+          "screen": "封包交換 · TCP/IP 1974 提出 · 1983-01-01 全面採用",
+          "objective": "用封包交換解釋為何網路能繞過斷線，並分辨網際網路與 WWW",
+          "narration": "打電話時，兩端會占住一條專線，講完才釋放。網路改用「封包交換」：訊息先切成許多小封包，每個封包都寫上地址和編號，各自找路前進。就算某條線路斷了，後面的封包也會繞道，到了終點再依編號拼回原樣。負責這套規則的，就是 TCP/IP。它在一九七四年由瑟夫和卡恩提出；一九八三年一月一日，阿帕網全面改用。許多人把這一天，看作現代網際網路的生日。不過要分清楚：網際網路像是道路系統；一九八九年柏納茲-李在歐洲核子研究組織提出的全球資訊網，則是跑在道路上的一種服務，用網址和超連結把網頁串起來。",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "電路交換",
+              "start": 52.325,
+              "end": 62.903
+            },
+            {
+              "name": "切成封包",
+              "start": 62.903,
+              "end": 77.941
+            },
+            {
+              "name": "斷線繞道",
+              "start": 77.941,
+              "end": 81.701
+            },
+            {
+              "name": "依號重組",
+              "start": 81.701,
+              "end": 89.984
+            },
+            {
+              "name": "TCP/IP 年表",
+              "start": 89.984,
+              "end": 108.115
+            },
+            {
+              "name": "道路與 WWW",
+              "start": 108.115,
+              "end": 127.576
+            }
+          ],
+          "qa_times": [
+            55.33,
+            58.02,
+            63.65,
+            65.97,
+            68.29,
+            78.69,
+            82.45,
+            90.73,
+            94.55,
+            98.61,
+            102.31,
+            108.86,
+            113.36,
+            117.98,
+            120.42
+          ],
+          "anchors": [
+            54.725,
+            57.425,
+            63.053,
+            65.373,
+            67.693,
+            78.091,
+            81.851,
+            90.134,
+            93.954,
+            98.014,
+            101.714,
+            108.265,
+            112.765,
+            117.385,
+            119.825
+          ],
+          "anchor_ends": [
+            57.425,
+            58.645,
+            64.773,
+            67.213,
+            71.313,
+            81.371,
+            84.251,
+            93.094,
+            97.074,
+            100.914,
+            105.114,
+            111.565,
+            117.385,
+            119.485,
+            122.765
+          ]
+        },
+        {
+          "id": "s3",
+          "section": "comparison",
+          "start": 127.576,
+          "end": 193.413,
+          "title": "台灣的上網之路",
+          "screen": "1990 TANet → 1995 HiNet → 1999 ADSL → 2007 光纖 → 4G / 5G",
+          "objective": "依序說出台灣上網世代並比較其速度與取捨",
+          "narration": "那台灣呢？一九九〇年，教育部建立台灣學術網路 TANet；一九九一年十二月，以每秒六十四千位元接上美國普林斯頓大學，這是台灣第一條國際網路連線。一九九五年，HiNet 撥接上網開始商業營運，數據機的嗶嗶聲，成了一代人的記憶；同一年，台大學生架設的 PTT 電子布告欄也上線了。一九九九年 ADSL 出現，上網不再占用電話；二〇〇七年，光纖進入家庭；二〇一四年 4G、二〇二〇年 5G 開台，網路從桌上走進口袋。同樣下載五 MB 的檔案，撥接要十幾分鐘，光纖不到一秒。不過，光纖得拉線到家；行動網路雖然方便，卻受基地台和訊號影響。",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "學術網路",
+              "start": 127.576,
+              "end": 147.018
+            },
+            {
+              "name": "撥接年代",
+              "start": 147.018,
+              "end": 161.029
+            },
+            {
+              "name": "寬頻與行動",
+              "start": 161.029,
+              "end": 175.321
+            },
+            {
+              "name": "速度比較",
+              "start": 175.321,
+              "end": 185.443
+            },
+            {
+              "name": "取捨",
+              "start": 185.443,
+              "end": 193.413
+            }
+          ],
+          "qa_times": [
+            130.58,
+            132.56,
+            136.98,
+            141.42,
+            147.77,
+            150.59,
+            153.65,
+            161.78,
+            165.88,
+            168.46,
+            171.0,
+            176.07,
+            178.51,
+            186.19,
+            187.93
+          ],
+          "anchors": [
+            129.976,
+            131.956,
+            136.376,
+            140.816,
+            147.168,
+            149.988,
+            153.048,
+            161.179,
+            165.279,
+            167.859,
+            170.399,
+            175.471,
+            177.911,
+            185.593,
+            187.333
+          ],
+          "anchor_ends": [
+            130.876,
+            135.416,
+            140.816,
+            143.516,
+            149.988,
+            153.048,
+            157.608,
+            164.099,
+            166.739,
+            170.119,
+            172.539,
+            177.451,
+            180.211,
+            187.333,
+            191.073
+          ]
+        },
+        {
+          "id": "s4",
+          "section": "application",
+          "start": 193.413,
+          "end": 246.13,
+          "title": "當海纜斷了",
+          "screen": "2023 年 2 月 · 台馬海纜斷裂（真實案例）",
+          "objective": "用馬祖斷纜說明繞道原理的限制",
+          "narration": "二〇二三年二月，連接台灣和馬祖的兩條海纜，在二月二日和八日相繼斷裂。封包找不到海纜這條路，只能改走微波備援。海纜像兩條高速公路，微波卻只是一條小路，所有車子都擠了上去。網路沒有完全中斷，但頻寬小了很多，看影片、刷卡、視訊都變得很慢。直到大約五十天後，海纜才修復。這告訴我們：繞道的前提，是真的還有別條路可走。",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "兩條海纜",
+              "start": 193.413,
+              "end": 200.843
+            },
+            {
+              "name": "相繼斷裂",
+              "start": 200.843,
+              "end": 209.966
+            },
+            {
+              "name": "微波擁塞",
+              "start": 209.966,
+              "end": 232.153
+            },
+            {
+              "name": "修復",
+              "start": 232.153,
+              "end": 239.44
+            },
+            {
+              "name": "啟示",
+              "start": 239.44,
+              "end": 246.13
+            }
+          ],
+          "qa_times": [
+            197.29,
+            198.91,
+            201.59,
+            210.72,
+            215.08,
+            219.58,
+            225.36,
+            229.0,
+            232.9,
+            240.19,
+            241.67
+          ],
+          "anchors": [
+            196.693,
+            198.313,
+            200.993,
+            210.116,
+            214.476,
+            218.976,
+            224.763,
+            228.403,
+            232.303,
+            239.59,
+            241.07
+          ],
+          "anchor_ends": [
+            197.513,
+            200.313,
+            203.753,
+            213.076,
+            218.256,
+            220.496,
+            227.563,
+            231.583,
+            235.063,
+            240.47,
+            243.85
+          ]
+        },
+        {
+          "id": "s5",
+          "section": "outlook",
+          "start": 246.13,
+          "end": 297.0,
+          "title": "下一條路在天上？",
+          "screen": "已公布 · 研究中 · 推測",
+          "objective": "區分已公布計畫、研究方向與推測，並回收核心概念",
+          "narration": "馬祖事件後，數位發展部推動低軌衛星的韌性驗證計畫，讓衛星成為另一條備援路。到了二〇二五年，台灣個人上網率已達百分之八十八點七五；其中 5G 上網率約百分之四十一，也有四成以上的民眾用過生成式 AI。接下來，6G 仍在研究中；而如何讓海纜、微波和衛星互相備援，又讓每個人都用得上、用得好，都是還沒解完的題目。從「LO」兩個字到今天，網路最核心的想法始終沒變：切開、找路，再拼回來。",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "衛星備援",
+              "start": 246.13,
+              "end": 255.74
+            },
+            {
+              "name": "上網數據",
+              "start": 255.74,
+              "end": 270.507
+            },
+            {
+              "name": "未解問題",
+              "start": 270.507,
+              "end": 283.979
+            },
+            {
+              "name": "回收主旨",
+              "start": 283.979,
+              "end": 297.0
+            }
+          ],
+          "qa_times": [
+            249.13,
+            253.59,
+            256.49,
+            261.29,
+            264.27,
+            271.26,
+            273.88,
+            277.72,
+            280.36,
+            284.73,
+            287.31,
+            290.09
+          ],
+          "anchors": [
+            248.53,
+            252.99,
+            255.89,
+            260.69,
+            263.67,
+            270.657,
+            273.277,
+            277.117,
+            279.757,
+            284.129,
+            286.709,
+            289.489
+          ],
+          "anchor_ends": [
+            252.99,
+            255.15,
+            258.67,
+            262.35,
+            266.11,
+            272.737,
+            277.117,
+            279.377,
+            281.057,
+            286.209,
+            289.009,
+            292.109
+          ]
+        },
+        {
+          "id": "credit",
+          "section": "credit",
+          "start": 297.0,
+          "end": 300.0,
+          "title": "",
+          "screen": "李振偉老師",
+          "narration": "",
+          "kind": "credit",
+          "phases": [
+            {
+              "name": "署名",
+              "start": 297.0,
+              "end": 300.0
+            }
+          ],
+          "qa_times": [
+            298.5
+          ]
+        }
+      ],
+      "subtitles": {
+        "reviewed": true,
+        "timing_source": "faster-whisper word timestamps on the actual Gemini zh-TW narration, mapped to the approved script (tools/align.py)",
+        "cues": [
+          {
+            "start": 2.4,
+            "end": 5.49,
+            "text": {
+              "zh-TW": "你每天滑手機、傳訊息，",
+              "en-US": "You scroll and send messages every day,",
+              "vi-VN": "Mỗi ngày bạn lướt điện thoại, nhắn tin,",
+              "ja-JP": "毎日スマホを見て、メッセージを送っていますが、"
+            }
+          },
+          {
+            "start": 5.54,
+            "end": 9.52,
+            "text": {
+              "zh-TW": "可是網路的第一句話，只有兩個字。",
+              "en-US": "but the Internet's very first words were just two letters.",
+              "vi-VN": "nhưng câu nói đầu tiên của mạng chỉ có hai chữ cái.",
+              "ja-JP": "インターネットの最初の言葉は、たった2文字でした。"
+            }
+          },
+          {
+            "start": 12.411,
+            "end": 14.881,
+            "text": {
+              "zh-TW": "1969 年 10 月 29 日晚上，",
+              "en-US": "On the night of October 29, 1969,",
+              "vi-VN": "Tối ngày 29 tháng 10 năm 1969,",
+              "ja-JP": "1969年10月29日の夜、"
+            }
+          },
+          {
+            "start": 14.931,
+            "end": 17.401,
+            "text": {
+              "zh-TW": "美國加州大學洛杉磯分校（UCLA）的電腦，",
+              "en-US": "a computer at UCLA",
+              "vi-VN": "một máy tính tại Đại học California, Los Angeles (UCLA)",
+              "ja-JP": "カリフォルニア大学ロサンゼルス校（UCLA）のコンピューターが、"
+            }
+          },
+          {
+            "start": 17.451,
+            "end": 22.561,
+            "text": {
+              "zh-TW": "要透過 ARPANET（阿帕網），把「LOGIN」傳給史丹佛研究院。",
+              "en-US": "tried to send the word LOGIN over the ARPANET to the Stanford Research Institute.",
+              "vi-VN": "định gửi chữ \"LOGIN\" qua mạng ARPANET đến Viện Nghiên cứu Stanford.",
+              "ja-JP": "ARPANETを通じて「LOGIN」をスタンフォード研究所へ送ろうとしました。"
+            }
+          },
+          {
+            "start": 22.611,
+            "end": 27.271,
+            "text": {
+              "zh-TW": "結果只傳出 L 和 O，系統就當機了；",
+              "en-US": "Only L and O got through before the system crashed;",
+              "vi-VN": "Kết quả chỉ gửi được chữ L và O thì hệ thống bị sập;",
+              "ja-JP": "ところがLとOを送ったところで、システムが停止してしまいました。"
+            }
+          },
+          {
+            "start": 31.654,
+            "end": 35.044,
+            "text": {
+              "zh-TW": "大約一小時後，才成功完成登入。",
+              "en-US": "the full login worked about an hour later.",
+              "vi-VN": "khoảng một giờ sau mới đăng nhập thành công.",
+              "ja-JP": "ログインに成功したのは、約1時間後のことでした。"
+            }
+          },
+          {
+            "start": 35.094,
+            "end": 37.444,
+            "text": {
+              "zh-TW": "這個計畫由美國國防部資助，",
+              "en-US": "The project, funded by the US Department of Defense,",
+              "vi-VN": "Dự án này do Bộ Quốc phòng Hoa Kỳ tài trợ,",
+              "ja-JP": "この計画はアメリカ国防総省の資金によるもので、"
+            }
+          },
+          {
+            "start": 37.494,
+            "end": 43.464,
+            "text": {
+              "zh-TW": "目的是讓分散各地、昂貴的電腦互相連線、共享資源。",
+              "en-US": "aimed to link expensive computers scattered across the country so they could share resources.",
+              "vi-VN": "nhằm kết nối các máy tính đắt tiền ở nhiều nơi để chia sẻ tài nguyên.",
+              "ja-JP": "各地に散らばる高価なコンピューターをつなぎ、資源を共有することが目的でした。"
+            }
+          },
+          {
+            "start": 43.514,
+            "end": 48.794,
+            "text": {
+              "zh-TW": "到了那一年年底，阿帕網已經連起四台主機。",
+              "en-US": "By the end of that year, the ARPANET connected four host computers.",
+              "vi-VN": "Đến cuối năm đó, ARPANET đã kết nối bốn máy chủ.",
+              "ja-JP": "その年の終わりには、ARPANETは4台のホストをつなぐまでになりました。"
+            }
+          },
+          {
+            "start": 54.725,
+            "end": 57.375,
+            "text": {
+              "zh-TW": "打電話時，兩端會占住一條專線，",
+              "en-US": "A phone call reserves one dedicated line between two ends",
+              "vi-VN": "Khi gọi điện thoại, hai đầu chiếm giữ một đường dây riêng",
+              "ja-JP": "電話では、両端が1本の専用回線を占有し、"
+            }
+          },
+          {
+            "start": 57.425,
+            "end": 59.845,
+            "text": {
+              "zh-TW": "講完才釋放。",
+              "en-US": "until you hang up.",
+              "vi-VN": "cho đến khi gác máy mới giải phóng.",
+              "ja-JP": "話し終えるまで解放されません。"
+            }
+          },
+          {
+            "start": 63.053,
+            "end": 65.323,
+            "text": {
+              "zh-TW": "網路改用「封包交換」：",
+              "en-US": "The Internet uses packet switching instead.",
+              "vi-VN": "Mạng Internet thì dùng \"chuyển mạch gói\":",
+              "ja-JP": "インターネットは代わりに「パケット交換」を使います。"
+            }
+          },
+          {
+            "start": 65.373,
+            "end": 67.643,
+            "text": {
+              "zh-TW": "訊息先切成許多小封包，",
+              "en-US": "A message is cut into small packets,",
+              "vi-VN": "tin nhắn được chia thành nhiều gói tin nhỏ,",
+              "ja-JP": "メッセージは小さなパケットに分けられ、"
+            }
+          },
+          {
+            "start": 67.693,
+            "end": 72.513,
+            "text": {
+              "zh-TW": "每個封包都寫上地址和編號，各自找路前進。",
+              "en-US": "each labeled with an address and a number, and each finds its own way.",
+              "vi-VN": "mỗi gói ghi địa chỉ và số thứ tự, rồi tự tìm đường đi.",
+              "ja-JP": "それぞれに宛先と番号が書かれ、各自で道を探して進みます。"
+            }
+          },
+          {
+            "start": 78.091,
+            "end": 81.801,
+            "text": {
+              "zh-TW": "就算某條線路斷了，後面的封包也會繞道，",
+              "en-US": "If a link breaks, the following packets take a detour,",
+              "vi-VN": "Dù một đường truyền bị đứt, các gói phía sau vẫn đi đường vòng,",
+              "ja-JP": "ある回線が切れても、後続のパケットは迂回し、"
+            }
+          },
+          {
+            "start": 81.851,
+            "end": 85.451,
+            "text": {
+              "zh-TW": "到了終點再依編號拼回原樣。",
+              "en-US": "and at the destination they are put back together in order.",
+              "vi-VN": "và đến đích sẽ được ghép lại theo số thứ tự.",
+              "ja-JP": "目的地で番号順に組み立て直されます。"
+            }
+          },
+          {
+            "start": 90.134,
+            "end": 93.904,
+            "text": {
+              "zh-TW": "負責這套規則的，就是 TCP/IP。",
+              "en-US": "The rules behind this are called TCP/IP.",
+              "vi-VN": "Bộ quy tắc đảm nhận việc này chính là TCP/IP.",
+              "ja-JP": "この仕組みのルールが、TCP/IPです。"
+            }
+          },
+          {
+            "start": 93.954,
+            "end": 97.964,
+            "text": {
+              "zh-TW": "它在 1974 年由瑟夫和卡恩提出；",
+              "en-US": "Vint Cerf and Bob Kahn proposed them in 1974,",
+              "vi-VN": "Nó được Vint Cerf và Bob Kahn đề xuất năm 1974;",
+              "ja-JP": "1974年にサーフとカーンが提案し、"
+            }
+          },
+          {
+            "start": 98.014,
+            "end": 101.664,
+            "text": {
+              "zh-TW": "1983 年 1 月 1 日，阿帕網全面改用。",
+              "en-US": "and on January 1, 1983, the ARPANET switched over completely.",
+              "vi-VN": "ngày 1 tháng 1 năm 1983, ARPANET chuyển hẳn sang dùng nó.",
+              "ja-JP": "1983年1月1日、ARPANETは全面的に切り替えました。"
+            }
+          },
+          {
+            "start": 101.714,
+            "end": 106.314,
+            "text": {
+              "zh-TW": "許多人把這一天，看作現代網際網路的生日。",
+              "en-US": "Many people see that day as the birthday of the modern Internet.",
+              "vi-VN": "Nhiều người xem ngày này là sinh nhật của Internet hiện đại.",
+              "ja-JP": "この日を現代インターネットの誕生日と考える人も多くいます。"
+            }
+          },
+          {
+            "start": 108.265,
+            "end": 112.715,
+            "text": {
+              "zh-TW": "不過要分清楚：網際網路像是道路系統；",
+              "en-US": "But keep one distinction clear: the Internet is like a road system.",
+              "vi-VN": "Nhưng cần phân biệt rõ: Internet giống như hệ thống đường sá;",
+              "ja-JP": "ただし区別が必要です。インターネットは道路網のようなもので、"
+            }
+          },
+          {
+            "start": 112.765,
+            "end": 117.335,
+            "text": {
+              "zh-TW": "1989 年柏納茲-李在 CERN 提出的全球資訊網（WWW），",
+              "en-US": "The World Wide Web, proposed by Tim Berners-Lee at CERN in 1989,",
+              "vi-VN": "còn World Wide Web do Tim Berners-Lee đề xuất tại CERN năm 1989",
+              "ja-JP": "1989年にバーナーズ＝リーがCERNで提案したワールド・ワイド・ウェブは、"
+            }
+          },
+          {
+            "start": 117.385,
+            "end": 119.775,
+            "text": {
+              "zh-TW": "則是跑在道路上的一種服務，",
+              "en-US": "is one service running on those roads,",
+              "vi-VN": "là một dịch vụ chạy trên những con đường đó,",
+              "ja-JP": "その道路の上で動くサービスの一つで、"
+            }
+          },
+          {
+            "start": 119.825,
+            "end": 123.965,
+            "text": {
+              "zh-TW": "用網址和超連結把網頁串起來。",
+              "en-US": "linking pages together with addresses and hyperlinks.",
+              "vi-VN": "dùng địa chỉ và siêu liên kết để nối các trang web.",
+              "ja-JP": "URLとハイパーリンクでページをつなぎます。"
+            }
+          },
+          {
+            "start": 129.976,
+            "end": 131.906,
+            "text": {
+              "zh-TW": "那台灣呢？",
+              "en-US": "What about Taiwan?",
+              "vi-VN": "Còn Đài Loan thì sao?",
+              "ja-JP": "では、台湾はどうでしょうか。"
+            }
+          },
+          {
+            "start": 131.956,
+            "end": 136.326,
+            "text": {
+              "zh-TW": "1990 年，教育部建立台灣學術網路 TANet；",
+              "en-US": "In 1990, the Ministry of Education set up the Taiwan Academic Network, TANet.",
+              "vi-VN": "Năm 1990, Bộ Giáo dục lập Mạng Học thuật Đài Loan TANet;",
+              "ja-JP": "1990年、教育部が台湾学術ネットワーク「TANet」を構築しました。"
+            }
+          },
+          {
+            "start": 136.376,
+            "end": 140.766,
+            "text": {
+              "zh-TW": "1991 年 12 月，以每秒 64 千位元接上美國普林斯頓大學，",
+              "en-US": "In December 1991, it linked to Princeton University at 64 kilobits per second:",
+              "vi-VN": "Tháng 12 năm 1991, mạng kết nối với Đại học Princeton (Mỹ) ở tốc độ 64 kbps,",
+              "ja-JP": "1991年12月、毎秒64キロビットでアメリカのプリンストン大学と接続しました。"
+            }
+          },
+          {
+            "start": 140.816,
+            "end": 144.716,
+            "text": {
+              "zh-TW": "這是台灣第一條國際網路連線。",
+              "en-US": "Taiwan's first international network connection.",
+              "vi-VN": "đây là kết nối mạng quốc tế đầu tiên của Đài Loan.",
+              "ja-JP": "これが台湾初の国際ネットワーク接続です。"
+            }
+          },
+          {
+            "start": 147.168,
+            "end": 149.938,
+            "text": {
+              "zh-TW": "1995 年，HiNet 撥接上網開始商業營運，",
+              "en-US": "In 1995, HiNet launched commercial dial-up service,",
+              "vi-VN": "Năm 1995, HiNet bắt đầu kinh doanh dịch vụ Internet quay số,",
+              "ja-JP": "1995年、HiNetがダイヤルアップ接続の商用サービスを開始し、"
+            }
+          },
+          {
+            "start": 149.988,
+            "end": 152.998,
+            "text": {
+              "zh-TW": "數據機的嗶嗶聲，成了一代人的記憶；",
+              "en-US": "and the screech of the modem became a generation's memory;",
+              "vi-VN": "tiếng rít của modem trở thành ký ức của cả một thế hệ;",
+              "ja-JP": "モデムの接続音は、ある世代の思い出になりました。"
+            }
+          },
+          {
+            "start": 153.048,
+            "end": 158.808,
+            "text": {
+              "zh-TW": "同一年，台大學生架設的 PTT 電子布告欄也上線了。",
+              "en-US": "that same year, a university student launched the PTT bulletin board at National Taiwan University.",
+              "vi-VN": "cùng năm đó, diễn đàn BBS PTT do một sinh viên Đại học Quốc gia Đài Loan lập ra cũng đi vào hoạt động.",
+              "ja-JP": "同じ年、台湾大学の学生が立ち上げた掲示板「PTT」も始まりました。"
+            }
+          },
+          {
+            "start": 161.179,
+            "end": 165.229,
+            "text": {
+              "zh-TW": "1999 年 ADSL 出現，上網不再占用電話；",
+              "en-US": "ADSL arrived in 1999, so going online no longer tied up the phone.",
+              "vi-VN": "Năm 1999 ADSL xuất hiện, lên mạng không còn chiếm đường điện thoại;",
+              "ja-JP": "1999年にADSLが登場し、ネット接続で電話がふさがらなくなりました。"
+            }
+          },
+          {
+            "start": 165.279,
+            "end": 167.809,
+            "text": {
+              "zh-TW": "2007 年，光纖進入家庭；",
+              "en-US": "Fiber reached homes in 2007,",
+              "vi-VN": "năm 2007, cáp quang vào đến hộ gia đình;",
+              "ja-JP": "2007年には光ファイバーが家庭に届き、"
+            }
+          },
+          {
+            "start": 167.859,
+            "end": 170.349,
+            "text": {
+              "zh-TW": "2014 年 4G、2020 年 5G 開台，",
+              "en-US": "and 4G in 2014 and 5G in 2020",
+              "vi-VN": "năm 2014 có 4G, năm 2020 có 5G,",
+              "ja-JP": "2014年に4G、2020年に5Gがサービスを開始し、"
+            }
+          },
+          {
+            "start": 170.399,
+            "end": 173.739,
+            "text": {
+              "zh-TW": "網路從桌上走進口袋。",
+              "en-US": "moved the Internet from the desk into our pockets.",
+              "vi-VN": "Internet đi từ bàn làm việc vào túi áo.",
+              "ja-JP": "インターネットは机の上からポケットの中へ移りました。"
+            }
+          },
+          {
+            "start": 175.471,
+            "end": 177.861,
+            "text": {
+              "zh-TW": "同樣下載 5 MB 的檔案，",
+              "en-US": "The same five-megabyte file",
+              "vi-VN": "Cùng tải một tệp 5 MB,",
+              "ja-JP": "同じ5MBのファイルをダウンロードするのに、"
+            }
+          },
+          {
+            "start": 177.911,
+            "end": 181.411,
+            "text": {
+              "zh-TW": "撥接要十幾分鐘，光纖不到一秒。",
+              "en-US": "took over ten minutes on dial-up, and under a second on fiber.",
+              "vi-VN": "quay số mất hơn mười phút, cáp quang chưa đến một giây.",
+              "ja-JP": "ダイヤルアップでは10分以上、光ファイバーなら1秒未満です。"
+            }
+          },
+          {
+            "start": 185.593,
+            "end": 187.283,
+            "text": {
+              "zh-TW": "不過，光纖得拉線到家；",
+              "en-US": "But fiber needs a cable to your home,",
+              "vi-VN": "Tuy nhiên, cáp quang phải kéo dây đến tận nhà;",
+              "ja-JP": "ただし、光ファイバーは家まで線を引く必要があり、"
+            }
+          },
+          {
+            "start": 187.333,
+            "end": 192.273,
+            "text": {
+              "zh-TW": "行動網路雖然方便，卻受基地台和訊號影響。",
+              "en-US": "while mobile is convenient but depends on towers and signal.",
+              "vi-VN": "mạng di động tuy tiện lợi nhưng phụ thuộc vào trạm phát sóng và tín hiệu.",
+              "ja-JP": "モバイル通信は便利ですが、基地局と電波状況に左右されます。"
+            }
+          },
+          {
+            "start": 196.693,
+            "end": 198.263,
+            "text": {
+              "zh-TW": "2023 年 2 月，",
+              "en-US": "In February 2023,",
+              "vi-VN": "Tháng 2 năm 2023,",
+              "ja-JP": "2023年2月、"
+            }
+          },
+          {
+            "start": 198.313,
+            "end": 200.943,
+            "text": {
+              "zh-TW": "連接台灣和馬祖的兩條海纜，",
+              "en-US": "the two submarine cables linking Taiwan and Matsu",
+              "vi-VN": "hai tuyến cáp quang biển nối Đài Loan và Mã Tổ",
+              "ja-JP": "台湾と馬祖を結ぶ2本の海底ケーブルが、"
+            }
+          },
+          {
+            "start": 200.993,
+            "end": 204.953,
+            "text": {
+              "zh-TW": "在 2 月 2 日和 8 日相繼斷裂。",
+              "en-US": "broke one after another, on February 2nd and 8th.",
+              "vi-VN": "lần lượt bị đứt vào ngày 2 và ngày 8 tháng 2.",
+              "ja-JP": "2月2日と8日に相次いで切断されました。"
+            }
+          },
+          {
+            "start": 210.116,
+            "end": 214.276,
+            "text": {
+              "zh-TW": "封包找不到海纜這條路，只能改走微波備援。",
+              "en-US": "With the cable route gone, packets had to fall back on a microwave link.",
+              "vi-VN": "Không còn đường cáp biển, các gói tin phải chuyển sang đường dự phòng vi ba.",
+              "ja-JP": "海底ケーブルの道を失ったパケットは、マイクロ波のバックアップに頼るしかありません。"
+            }
+          },
+          {
+            "start": 214.476,
+            "end": 218.926,
+            "text": {
+              "zh-TW": "海纜像兩條高速公路，微波卻只是一條小路，",
+              "en-US": "The cables were like two highways; the microwave link was a narrow side road,",
+              "vi-VN": "Cáp biển như hai đường cao tốc, còn vi ba chỉ là một con đường nhỏ,",
+              "ja-JP": "海底ケーブルが2本の高速道路なら、マイクロ波は細い脇道にすぎず、"
+            }
+          },
+          {
+            "start": 218.976,
+            "end": 221.696,
+            "text": {
+              "zh-TW": "所有車子都擠了上去。",
+              "en-US": "and all the traffic squeezed onto it.",
+              "vi-VN": "mọi xe cộ đều dồn lên đó.",
+              "ja-JP": "すべての車がそこに押し寄せました。"
+            }
+          },
+          {
+            "start": 224.763,
+            "end": 228.353,
+            "text": {
+              "zh-TW": "網路沒有完全中斷，但頻寬小了很多，",
+              "en-US": "The connection never fully went dark, but bandwidth dropped sharply,",
+              "vi-VN": "Mạng không mất hẳn, nhưng băng thông giảm mạnh,",
+              "ja-JP": "通信が完全に途絶えたわけではありませんが、帯域は大きく減り、"
+            }
+          },
+          {
+            "start": 228.403,
+            "end": 232.253,
+            "text": {
+              "zh-TW": "看影片、刷卡、視訊都變得很慢。",
+              "en-US": "and videos, card payments and video calls all slowed down.",
+              "vi-VN": "xem video, quẹt thẻ, gọi video đều trở nên rất chậm.",
+              "ja-JP": "動画もカード決済もビデオ通話も、とても遅くなりました。"
+            }
+          },
+          {
+            "start": 232.303,
+            "end": 236.263,
+            "text": {
+              "zh-TW": "直到大約五十天後，海纜才修復。",
+              "en-US": "It took about fifty days to repair the cables.",
+              "vi-VN": "Phải khoảng năm mươi ngày sau cáp biển mới được sửa xong.",
+              "ja-JP": "ケーブルが修復されたのは、約50日後でした。"
+            }
+          },
+          {
+            "start": 239.59,
+            "end": 241.02,
+            "text": {
+              "zh-TW": "這告訴我們：",
+              "en-US": "The lesson:",
+              "vi-VN": "Điều này cho thấy:",
+              "ja-JP": "ここから分かるのは、"
+            }
+          },
+          {
+            "start": 241.07,
+            "end": 245.05,
+            "text": {
+              "zh-TW": "繞道的前提，是真的還有別條路可走。",
+              "en-US": "rerouting only works if there really is another road to take.",
+              "vi-VN": "muốn đi đường vòng thì phải thật sự còn một con đường khác.",
+              "ja-JP": "迂回できるのは、本当に別の道が残っている場合だけだということです。"
+            }
+          },
+          {
+            "start": 248.53,
+            "end": 252.94,
+            "text": {
+              "zh-TW": "馬祖事件後，數位發展部推動低軌衛星的韌性驗證計畫，",
+              "en-US": "After the Matsu incident, Taiwan's Ministry of Digital Affairs launched a program to test low-Earth-orbit satellites",
+              "vi-VN": "Sau sự cố Mã Tổ, Bộ Phát triển Kỹ thuật số thúc đẩy chương trình thử nghiệm vệ tinh quỹ đạo thấp",
+              "ja-JP": "馬祖の件の後、デジタル発展部は低軌道衛星による強靭性の検証計画を進め、"
+            }
+          },
+          {
+            "start": 252.99,
+            "end": 255.84,
+            "text": {
+              "zh-TW": "讓衛星成為另一條備援路。",
+              "en-US": "as another backup route.",
+              "vi-VN": "để vệ tinh trở thành một tuyến dự phòng khác.",
+              "ja-JP": "衛星をもう一つのバックアップ経路にしようとしています。"
+            }
+          },
+          {
+            "start": 255.89,
+            "end": 259.87,
+            "text": {
+              "zh-TW": "到了 2025 年，台灣個人上網率已達 88.75%；",
+              "en-US": "By 2025, 88.75 percent of people in Taiwan were online;",
+              "vi-VN": "Đến năm 2025, tỷ lệ người dân Đài Loan dùng Internet đạt 88,75%;",
+              "ja-JP": "2025年、台湾の個人インターネット利用率は88.75%に達し、"
+            }
+          },
+          {
+            "start": 260.69,
+            "end": 263.55,
+            "text": {
+              "zh-TW": "其中 5G 上網率約 41%，",
+              "en-US": "about 41 percent used 5G,",
+              "vi-VN": "khoảng 41% dùng 5G,",
+              "ja-JP": "5Gの利用率は約41%、"
+            }
+          },
+          {
+            "start": 263.67,
+            "end": 267.31,
+            "text": {
+              "zh-TW": "也有四成以上的民眾用過生成式 AI。",
+              "en-US": "and more than four in ten had tried generative AI.",
+              "vi-VN": "và hơn bốn phần mười người dân đã từng dùng AI tạo sinh.",
+              "ja-JP": "生成AIを使ったことがある人も4割を超えました。"
+            }
+          },
+          {
+            "start": 270.657,
+            "end": 273.227,
+            "text": {
+              "zh-TW": "接下來，6G 仍在研究中；",
+              "en-US": "Looking ahead, 6G is still being researched.",
+              "vi-VN": "Sắp tới, 6G vẫn đang được nghiên cứu;",
+              "ja-JP": "これから先、6Gはまだ研究段階です。"
+            }
+          },
+          {
+            "start": 273.277,
+            "end": 277.067,
+            "text": {
+              "zh-TW": "而如何讓海纜、微波和衛星互相備援，",
+              "en-US": "Making cables, microwave and satellites back each other up,",
+              "vi-VN": "còn làm sao để cáp biển, vi ba và vệ tinh dự phòng cho nhau,",
+              "ja-JP": "海底ケーブル、マイクロ波、衛星をどう補い合わせるか、"
+            }
+          },
+          {
+            "start": 277.117,
+            "end": 279.707,
+            "text": {
+              "zh-TW": "又讓每個人都用得上、用得好，",
+              "en-US": "and making sure everyone can get online and use it well,",
+              "vi-VN": "và để mọi người đều dùng được, dùng tốt,",
+              "ja-JP": "そして誰もが使え、使いこなせるようにするか、"
+            }
+          },
+          {
+            "start": 279.757,
+            "end": 282.257,
+            "text": {
+              "zh-TW": "都是還沒解完的題目。",
+              "en-US": "remain unsolved problems.",
+              "vi-VN": "đều là những bài toán chưa có lời giải.",
+              "ja-JP": "どちらもまだ解けていない課題です。"
+            }
+          },
+          {
+            "start": 284.129,
+            "end": 286.659,
+            "text": {
+              "zh-TW": "從「LO」兩個字到今天，",
+              "en-US": "From the two letters L O to today,",
+              "vi-VN": "Từ hai chữ \"LO\" cho đến hôm nay,",
+              "ja-JP": "「LO」の2文字から今日まで、"
+            }
+          },
+          {
+            "start": 286.709,
+            "end": 289.439,
+            "text": {
+              "zh-TW": "網路最核心的想法始終沒變：",
+              "en-US": "the Internet's core idea has not changed:",
+              "vi-VN": "ý tưởng cốt lõi của mạng vẫn không đổi:",
+              "ja-JP": "インターネットの核となる考え方は変わっていません。"
+            }
+          },
+          {
+            "start": 289.489,
+            "end": 293.309,
+            "text": {
+              "zh-TW": "切開、找路，再拼回來。",
+              "en-US": "cut it up, find a way, and put it back together.",
+              "vi-VN": "chia nhỏ, tìm đường, rồi ghép lại.",
+              "ja-JP": "分けて、道を探し、また組み立てる。"
+            }
+          }
+        ],
+        "review_note": "2026-10-18: cue text checked to concatenate exactly to the approved narration; timing from faster-whisper word timestamps on the real audio, checked for order/overlap/min duration. Human listening of sync: pending."
+      }
+    },
+    "en-US": {
+      "mix": "audio/mix-en-US.m4a",
+      "scenes": [
+        {
+          "id": "s1",
+          "section": "origin",
+          "start": 0.0,
+          "end": 46.844,
+          "title": "網路的第一句話",
+          "screen": "1969-10-29 · ARPANET 第一則訊息",
+          "objective": "說出網路起源的日期、地點與當時的目的",
+          "narration": "You scroll and send messages every day, but the Internet's very first words were just two letters. On the night of October 29, 1969, a computer at UCLA tried to send the word LOGIN over the ARPANET to the Stanford Research Institute. Only L and O got through before the system crashed; the full login worked about an hour later. The project, funded by the US Department of Defense, aimed to link expensive computers scattered across the country so they could share resources. By the end of that year, the ARPANET connected four host computers.",
+          "spoken_date": "October 29, 1969",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "開場",
+              "start": 0.0,
+              "end": 11.001
+            },
+            {
+              "name": "日期",
+              "start": 11.001,
+              "end": 13.981
+            },
+            {
+              "name": "LO 傳送",
+              "start": 13.981,
+              "end": 20.301
+            },
+            {
+              "name": "當機",
+              "start": 20.301,
+              "end": 30.863
+            },
+            {
+              "name": "四台主機",
+              "start": 30.863,
+              "end": 46.844
+            }
+          ],
+          "qa_times": [
+            3.0,
+            5.52,
+            11.75,
+            14.73,
+            15.79,
+            21.05,
+            28.93,
+            31.61,
+            34.51,
+            39.31
+          ],
+          "anchors": [
+            2.4,
+            4.92,
+            11.151,
+            14.131,
+            15.191,
+            20.451,
+            28.333,
+            31.013,
+            33.913,
+            38.713
+          ],
+          "anchor_ends": [
+            4.62,
+            8.18,
+            13.391,
+            15.191,
+            19.871,
+            23.251,
+            30.233,
+            33.493,
+            38.153,
+            42.193
+          ]
+        },
+        {
+          "id": "s2",
+          "section": "principle",
+          "start": 46.844,
+          "end": 123.052,
+          "title": "切開、找路、拼回來",
+          "screen": "封包交換 · TCP/IP 1974 提出 · 1983-01-01 全面採用",
+          "objective": "用封包交換解釋為何網路能繞過斷線，並分辨網際網路與 WWW",
+          "narration": "A phone call reserves one dedicated line between two ends until you hang up. The Internet uses packet switching instead. A message is cut into small packets, each labeled with an address and a number, and each finds its own way. If a link breaks, the following packets take a detour, and at the destination they are put back together in order. The rules behind this are called TCP/IP. Vint Cerf and Bob Kahn proposed them in 1974, and on January 1, 1983, the ARPANET switched over completely. Many people see that day as the birthday of the modern Internet. But keep one distinction clear: the Internet is like a road system. The World Wide Web, proposed by Tim Berners-Lee at CERN in 1989, is one service running on those roads, linking pages together with addresses and hyperlinks.",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "電路交換",
+              "start": 46.844,
+              "end": 57.35
+            },
+            {
+              "name": "切成封包",
+              "start": 57.35,
+              "end": 72.918
+            },
+            {
+              "name": "斷線繞道",
+              "start": 72.918,
+              "end": 76.378
+            },
+            {
+              "name": "依號重組",
+              "start": 76.378,
+              "end": 84.54
+            },
+            {
+              "name": "TCP/IP 年表",
+              "start": 84.54,
+              "end": 103.571
+            },
+            {
+              "name": "道路與 WWW",
+              "start": 103.571,
+              "end": 123.052
+            }
+          ],
+          "qa_times": [
+            49.84,
+            53.14,
+            58.1,
+            61.22,
+            63.66,
+            73.67,
+            77.13,
+            85.29,
+            88.97,
+            93.23,
+            98.39,
+            104.32,
+            108.86,
+            113.7,
+            115.98
+          ],
+          "anchors": [
+            49.244,
+            52.544,
+            57.5,
+            60.62,
+            63.06,
+            73.068,
+            76.528,
+            84.69,
+            88.37,
+            92.63,
+            97.79,
+            103.721,
+            108.261,
+            113.101,
+            115.381
+          ],
+          "anchor_ends": [
+            52.544,
+            53.484,
+            59.8,
+            62.68,
+            66.84,
+            76.068,
+            79.488,
+            88.37,
+            92.15,
+            97.15,
+            100.91,
+            107.721,
+            112.401,
+            115.001,
+            118.321
+          ]
+        },
+        {
+          "id": "s3",
+          "section": "comparison",
+          "start": 123.052,
+          "end": 192.027,
+          "title": "台灣的上網之路",
+          "screen": "1990 TANet → 1995 HiNet → 1999 ADSL → 2007 光纖 → 4G / 5G",
+          "objective": "依序說出台灣上網世代並比較其速度與取捨",
+          "narration": "What about Taiwan? In 1990, the Ministry of Education set up the Taiwan Academic Network, TANet. In December 1991, it linked to Princeton University at 64 kilobits per second: Taiwan's first international network connection. In 1995, HiNet launched commercial dial-up service, and the screech of the modem became a generation's memory; that same year, a university student launched the PTT bulletin board at National Taiwan University. ADSL arrived in 1999, so going online no longer tied up the phone. Fiber reached homes in 2007, and 4G in 2014 and 5G in 2020 moved the Internet from the desk into our pockets. The same five-megabyte file took over ten minutes on dial-up, and under a second on fiber. But fiber needs a cable to your home, while mobile is convenient but depends on towers and signal.",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "學術網路",
+              "start": 123.052,
+              "end": 143.593
+            },
+            {
+              "name": "撥接年代",
+              "start": 143.593,
+              "end": 159.024
+            },
+            {
+              "name": "寬頻與行動",
+              "start": 159.024,
+              "end": 174.615
+            },
+            {
+              "name": "速度比較",
+              "start": 174.615,
+              "end": 184.537
+            },
+            {
+              "name": "取捨",
+              "start": 184.537,
+              "end": 192.027
+            }
+          ],
+          "qa_times": [
+            126.05,
+            127.81,
+            133.45,
+            139.07,
+            144.34,
+            148.02,
+            151.18,
+            159.77,
+            164.63,
+            166.93,
+            169.83,
+            175.36,
+            176.94,
+            185.29,
+            187.11
+          ],
+          "anchors": [
+            125.452,
+            127.212,
+            132.852,
+            138.472,
+            143.743,
+            147.423,
+            150.583,
+            159.174,
+            164.034,
+            166.334,
+            169.234,
+            174.765,
+            176.345,
+            184.687,
+            186.507
+          ],
+          "anchor_ends": [
+            126.412,
+            132.312,
+            138.112,
+            140.712,
+            147.123,
+            149.963,
+            155.923,
+            163.334,
+            165.954,
+            169.234,
+            171.754,
+            176.345,
+            179.645,
+            186.267,
+            189.567
+          ]
+        },
+        {
+          "id": "s4",
+          "section": "application",
+          "start": 192.027,
+          "end": 244.122,
+          "title": "當海纜斷了",
+          "screen": "2023 年 2 月 · 台馬海纜斷裂（真實案例）",
+          "objective": "用馬祖斷纜說明繞道原理的限制",
+          "narration": "In February 2023, the two submarine cables linking Taiwan and Matsu broke one after another, on February 2nd and 8th. With the cable route gone, packets had to fall back on a microwave link. The cables were like two highways; the microwave link was a narrow side road, and all the traffic squeezed onto it. The connection never fully went dark, but bandwidth dropped sharply, and videos, card payments and video calls all slowed down. It took about fifty days to repair the cables. The lesson: rerouting only works if there really is another road to take.",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "兩條海纜",
+              "start": 192.027,
+              "end": 199.337
+            },
+            {
+              "name": "相繼斷裂",
+              "start": 199.337,
+              "end": 203.357
+            },
+            {
+              "name": "微波擁塞",
+              "start": 203.357,
+              "end": 230.775
+            },
+            {
+              "name": "修復",
+              "start": 230.775,
+              "end": 237.392
+            },
+            {
+              "name": "啟示",
+              "start": 237.392,
+              "end": 244.122
+            }
+          ],
+          "qa_times": [
+            195.03,
+            197.19,
+            200.09,
+            204.11,
+            212.97,
+            217.33,
+            223.32,
+            227.53,
+            231.53,
+            238.14,
+            239.04
+          ],
+          "anchors": [
+            194.427,
+            196.587,
+            199.487,
+            203.507,
+            212.369,
+            216.729,
+            222.725,
+            226.925,
+            230.925,
+            237.542,
+            238.442
+          ],
+          "anchor_ends": [
+            195.927,
+            199.487,
+            203.507,
+            211.729,
+            216.489,
+            218.769,
+            226.485,
+            230.425,
+            233.345,
+            237.822,
+            241.722
+          ]
+        },
+        {
+          "id": "s5",
+          "section": "outlook",
+          "start": 244.122,
+          "end": 297.0,
+          "title": "下一條路在天上？",
+          "screen": "已公布 · 研究中 · 推測",
+          "objective": "區分已公布計畫、研究方向與推測，並回收核心概念",
+          "narration": "After the Matsu incident, Taiwan's Ministry of Digital Affairs launched a program to test low-Earth-orbit satellites as another backup route. By 2025, 88.75 percent of people in Taiwan were online; about 41 percent used 5G, and more than four in ten had tried generative AI. Looking ahead, 6G is still being researched. Making cables, microwave and satellites back each other up, and making sure everyone can get online and use it well, remain unsolved problems. From the two letters L O to today, the Internet's core idea has not changed: cut it up, find a way, and put it back together.",
+          "spoken_date": "",
+          "kind": "flow",
+          "phases": [
+            {
+              "name": "衛星備援",
+              "start": 244.122,
+              "end": 255.072
+            },
+            {
+              "name": "上網數據",
+              "start": 255.072,
+              "end": 269.868
+            },
+            {
+              "name": "未解問題",
+              "start": 269.868,
+              "end": 284.019
+            },
+            {
+              "name": "回收主旨",
+              "start": 284.019,
+              "end": 297.0
+            }
+          ],
+          "qa_times": [
+            247.12,
+            253.78,
+            255.82,
+            260.96,
+            263.32,
+            270.62,
+            273.36,
+            277.48,
+            280.08,
+            284.77,
+            287.53,
+            290.09
+          ],
+          "anchors": [
+            246.522,
+            253.182,
+            255.222,
+            260.362,
+            262.722,
+            270.018,
+            272.758,
+            276.878,
+            279.478,
+            284.169,
+            286.929,
+            289.489
+          ],
+          "anchor_ends": [
+            253.182,
+            254.462,
+            259.762,
+            262.262,
+            265.622,
+            272.758,
+            276.498,
+            279.178,
+            280.978,
+            286.349,
+            288.889,
+            292.309
+          ]
+        },
+        {
+          "id": "credit",
+          "section": "credit",
+          "start": 297.0,
+          "end": 300.0,
+          "title": "",
+          "screen": "李振偉老師",
+          "narration": "",
+          "kind": "credit",
+          "phases": [
+            {
+              "name": "署名",
+              "start": 297.0,
+              "end": 300.0
+            }
+          ],
+          "qa_times": [
+            298.5
+          ]
+        }
+      ],
+      "subtitles": {
+        "reviewed": true,
+        "timing_source": "faster-whisper word timestamps on the actual Gemini en-US narration, mapped to the approved script (tools/align.py)",
+        "cues": [
+          {
+            "start": 2.4,
+            "end": 4.87,
+            "text": {
+              "zh-TW": "你每天滑手機、傳訊息，",
+              "en-US": "You scroll and send messages every day,",
+              "vi-VN": "Mỗi ngày bạn lướt điện thoại, nhắn tin,",
+              "ja-JP": "毎日スマホを見て、メッセージを送っていますが、"
+            }
+          },
+          {
+            "start": 4.92,
+            "end": 9.38,
+            "text": {
+              "zh-TW": "可是網路的第一句話，只有兩個字。",
+              "en-US": "but the Internet's very first words were just two letters.",
+              "vi-VN": "nhưng câu nói đầu tiên của mạng chỉ có hai chữ cái.",
+              "ja-JP": "インターネットの最初の言葉は、たった2文字でした。"
+            }
+          },
+          {
+            "start": 11.151,
+            "end": 14.081,
+            "text": {
+              "zh-TW": "1969 年 10 月 29 日晚上，",
+              "en-US": "On the night of October 29, 1969,",
+              "vi-VN": "Tối ngày 29 tháng 10 năm 1969,",
+              "ja-JP": "1969年10月29日の夜、"
+            }
+          },
+          {
+            "start": 14.131,
+            "end": 15.141,
+            "text": {
+              "zh-TW": "美國加州大學洛杉磯分校（UCLA）的電腦，",
+              "en-US": "a computer at UCLA",
+              "vi-VN": "một máy tính tại Đại học California, Los Angeles (UCLA)",
+              "ja-JP": "カリフォルニア大学ロサンゼルス校（UCLA）のコンピューターが、"
+            }
+          },
+          {
+            "start": 15.191,
+            "end": 20.401,
+            "text": {
+              "zh-TW": "要透過 ARPANET（阿帕網），把「LOGIN」傳給史丹佛研究院。",
+              "en-US": "tried to send the word LOGIN over the ARPANET to the Stanford Research Institute.",
+              "vi-VN": "định gửi chữ \"LOGIN\" qua mạng ARPANET đến Viện Nghiên cứu Stanford.",
+              "ja-JP": "ARPANETを通じて「LOGIN」をスタンフォード研究所へ送ろうとしました。"
+            }
+          },
+          {
+            "start": 20.451,
+            "end": 24.451,
+            "text": {
+              "zh-TW": "結果只傳出 L 和 O，系統就當機了；",
+              "en-US": "Only L and O got through before the system crashed;",
+              "vi-VN": "Kết quả chỉ gửi được chữ L và O thì hệ thống bị sập;",
+              "ja-JP": "ところがLとOを送ったところで、システムが停止してしまいました。"
+            }
+          },
+          {
+            "start": 28.333,
+            "end": 30.963,
+            "text": {
+              "zh-TW": "大約一小時後，才成功完成登入。",
+              "en-US": "the full login worked about an hour later.",
+              "vi-VN": "khoảng một giờ sau mới đăng nhập thành công.",
+              "ja-JP": "ログインに成功したのは、約1時間後のことでした。"
+            }
+          },
+          {
+            "start": 31.013,
+            "end": 33.863,
+            "text": {
+              "zh-TW": "這個計畫由美國國防部資助，",
+              "en-US": "The project, funded by the US Department of Defense,",
+              "vi-VN": "Dự án này do Bộ Quốc phòng Hoa Kỳ tài trợ,",
+              "ja-JP": "この計画はアメリカ国防総省の資金によるもので、"
+            }
+          },
+          {
+            "start": 33.913,
+            "end": 38.663,
+            "text": {
+              "zh-TW": "目的是讓分散各地、昂貴的電腦互相連線、共享資源。",
+              "en-US": "aimed to link expensive computers scattered across the country so they could share resources.",
+              "vi-VN": "nhằm kết nối các máy tính đắt tiền ở nhiều nơi để chia sẻ tài nguyên.",
+              "ja-JP": "各地に散らばる高価なコンピューターをつなぎ、資源を共有することが目的でした。"
+            }
+          },
+          {
+            "start": 38.713,
+            "end": 43.393,
+            "text": {
+              "zh-TW": "到了那一年年底，阿帕網已經連起四台主機。",
+              "en-US": "By the end of that year, the ARPANET connected four host computers.",
+              "vi-VN": "Đến cuối năm đó, ARPANET đã kết nối bốn máy chủ.",
+              "ja-JP": "その年の終わりには、ARPANETは4台のホストをつなぐまでになりました。"
+            }
+          },
+          {
+            "start": 49.244,
+            "end": 52.494,
+            "text": {
+              "zh-TW": "打電話時，兩端會占住一條專線，",
+              "en-US": "A phone call reserves one dedicated line between two ends",
+              "vi-VN": "Khi gọi điện thoại, hai đầu chiếm giữ một đường dây riêng",
+              "ja-JP": "電話では、両端が1本の専用回線を占有し、"
+            }
+          },
+          {
+            "start": 52.544,
+            "end": 54.684,
+            "text": {
+              "zh-TW": "講完才釋放。",
+              "en-US": "until you hang up.",
+              "vi-VN": "cho đến khi gác máy mới giải phóng.",
+              "ja-JP": "話し終えるまで解放されません。"
+            }
+          },
+          {
+            "start": 57.5,
+            "end": 60.57,
+            "text": {
+              "zh-TW": "網路改用「封包交換」：",
+              "en-US": "The Internet uses packet switching instead.",
+              "vi-VN": "Mạng Internet thì dùng \"chuyển mạch gói\":",
+              "ja-JP": "インターネットは代わりに「パケット交換」を使います。"
+            }
+          },
+          {
+            "start": 60.62,
+            "end": 63.01,
+            "text": {
+              "zh-TW": "訊息先切成許多小封包，",
+              "en-US": "A message is cut into small packets,",
+              "vi-VN": "tin nhắn được chia thành nhiều gói tin nhỏ,",
+              "ja-JP": "メッセージは小さなパケットに分けられ、"
+            }
+          },
+          {
+            "start": 63.06,
+            "end": 68.04,
+            "text": {
+              "zh-TW": "每個封包都寫上地址和編號，各自找路前進。",
+              "en-US": "each labeled with an address and a number, and each finds its own way.",
+              "vi-VN": "mỗi gói ghi địa chỉ và số thứ tự, rồi tự tìm đường đi.",
+              "ja-JP": "それぞれに宛先と番号が書かれ、各自で道を探して進みます。"
+            }
+          },
+          {
+            "start": 73.068,
+            "end": 76.478,
+            "text": {
+              "zh-TW": "就算某條線路斷了，後面的封包也會繞道，",
+              "en-US": "If a link breaks, the following packets take a detour,",
+              "vi-VN": "Dù một đường truyền bị đứt, các gói phía sau vẫn đi đường vòng,",
+              "ja-JP": "ある回線が切れても、後続のパケットは迂回し、"
+            }
+          },
+          {
+            "start": 76.528,
+            "end": 80.688,
+            "text": {
+              "zh-TW": "到了終點再依編號拼回原樣。",
+              "en-US": "and at the destination they are put back together in order.",
+              "vi-VN": "và đến đích sẽ được ghép lại theo số thứ tự.",
+              "ja-JP": "目的地で番号順に組み立て直されます。"
+            }
+          },
+          {
+            "start": 84.69,
+            "end": 88.32,
+            "text": {
+              "zh-TW": "負責這套規則的，就是 TCP/IP。",
+              "en-US": "The rules behind this are called TCP/IP.",
+              "vi-VN": "Bộ quy tắc đảm nhận việc này chính là TCP/IP.",
+              "ja-JP": "この仕組みのルールが、TCP/IPです。"
+            }
+          },
+          {
+            "start": 88.37,
+            "end": 92.58,
+            "text": {
+              "zh-TW": "它在 1974 年由瑟夫和卡恩提出；",
+              "en-US": "Vint Cerf and Bob Kahn proposed them in 1974,",
+              "vi-VN": "Nó được Vint Cerf và Bob Kahn đề xuất năm 1974;",
+              "ja-JP": "1974年にサーフとカーンが提案し、"
+            }
+          },
+          {
+            "start": 92.63,
+            "end": 97.74,
+            "text": {
+              "zh-TW": "1983 年 1 月 1 日，阿帕網全面改用。",
+              "en-US": "and on January 1, 1983, the ARPANET switched over completely.",
+              "vi-VN": "ngày 1 tháng 1 năm 1983, ARPANET chuyển hẳn sang dùng nó.",
+              "ja-JP": "1983年1月1日、ARPANETは全面的に切り替えました。"
+            }
+          },
+          {
+            "start": 97.79,
+            "end": 102.11,
+            "text": {
+              "zh-TW": "許多人把這一天，看作現代網際網路的生日。",
+              "en-US": "Many people see that day as the birthday of the modern Internet.",
+              "vi-VN": "Nhiều người xem ngày này là sinh nhật của Internet hiện đại.",
+              "ja-JP": "この日を現代インターネットの誕生日と考える人も多くいます。"
+            }
+          },
+          {
+            "start": 103.721,
+            "end": 108.211,
+            "text": {
+              "zh-TW": "不過要分清楚：網際網路像是道路系統；",
+              "en-US": "But keep one distinction clear: the Internet is like a road system.",
+              "vi-VN": "Nhưng cần phân biệt rõ: Internet giống như hệ thống đường sá;",
+              "ja-JP": "ただし区別が必要です。インターネットは道路網のようなもので、"
+            }
+          },
+          {
+            "start": 108.261,
+            "end": 113.051,
+            "text": {
+              "zh-TW": "1989 年柏納茲-李在 CERN 提出的全球資訊網（WWW），",
+              "en-US": "The World Wide Web, proposed by Tim Berners-Lee at CERN in 1989,",
+              "vi-VN": "còn World Wide Web do Tim Berners-Lee đề xuất tại CERN năm 1989",
+              "ja-JP": "1989年にバーナーズ＝リーがCERNで提案したワールド・ワイド・ウェブは、"
+            }
+          },
+          {
+            "start": 113.101,
+            "end": 115.331,
+            "text": {
+              "zh-TW": "則是跑在道路上的一種服務，",
+              "en-US": "is one service running on those roads,",
+              "vi-VN": "là một dịch vụ chạy trên những con đường đó,",
+              "ja-JP": "その道路の上で動くサービスの一つで、"
+            }
+          },
+          {
+            "start": 115.381,
+            "end": 119.521,
+            "text": {
+              "zh-TW": "用網址和超連結把網頁串起來。",
+              "en-US": "linking pages together with addresses and hyperlinks.",
+              "vi-VN": "dùng địa chỉ và siêu liên kết để nối các trang web.",
+              "ja-JP": "URLとハイパーリンクでページをつなぎます。"
+            }
+          },
+          {
+            "start": 125.452,
+            "end": 127.162,
+            "text": {
+              "zh-TW": "那台灣呢？",
+              "en-US": "What about Taiwan?",
+              "vi-VN": "Còn Đài Loan thì sao?",
+              "ja-JP": "では、台湾はどうでしょうか。"
+            }
+          },
+          {
+            "start": 127.212,
+            "end": 132.802,
+            "text": {
+              "zh-TW": "1990 年，教育部建立台灣學術網路 TANet；",
+              "en-US": "In 1990, the Ministry of Education set up the Taiwan Academic Network, TANet.",
+              "vi-VN": "Năm 1990, Bộ Giáo dục lập Mạng Học thuật Đài Loan TANet;",
+              "ja-JP": "1990年、教育部が台湾学術ネットワーク「TANet」を構築しました。"
+            }
+          },
+          {
+            "start": 132.852,
+            "end": 138.422,
+            "text": {
+              "zh-TW": "1991 年 12 月，以每秒 64 千位元接上美國普林斯頓大學，",
+              "en-US": "In December 1991, it linked to Princeton University at 64 kilobits per second:",
+              "vi-VN": "Tháng 12 năm 1991, mạng kết nối với Đại học Princeton (Mỹ) ở tốc độ 64 kbps,",
+              "ja-JP": "1991年12月、毎秒64キロビットでアメリカのプリンストン大学と接続しました。"
+            }
+          },
+          {
+            "start": 138.472,
+            "end": 141.912,
+            "text": {
+              "zh-TW": "這是台灣第一條國際網路連線。",
+              "en-US": "Taiwan's first international network connection.",
+              "vi-VN": "đây là kết nối mạng quốc tế đầu tiên của Đài Loan.",
+              "ja-JP": "これが台湾初の国際ネットワーク接続です。"
+            }
+          },
+          {
+            "start": 143.743,
+            "end": 147.373,
+            "text": {
+              "zh-TW": "1995 年，HiNet 撥接上網開始商業營運，",
+              "en-US": "In 1995, HiNet launched commercial dial-up service,",
+              "vi-VN": "Năm 1995, HiNet bắt đầu kinh doanh dịch vụ Internet quay số,",
+              "ja-JP": "1995年、HiNetがダイヤルアップ接続の商用サービスを開始し、"
+            }
+          },
+          {
+            "start": 147.423,
+            "end": 150.533,
+            "text": {
+              "zh-TW": "數據機的嗶嗶聲，成了一代人的記憶；",
+              "en-US": "and the screech of the modem became a generation's memory;",
+              "vi-VN": "tiếng rít của modem trở thành ký ức của cả một thế hệ;",
+              "ja-JP": "モデムの接続音は、ある世代の思い出になりました。"
+            }
+          },
+          {
+            "start": 150.583,
+            "end": 157.123,
+            "text": {
+              "zh-TW": "同一年，台大學生架設的 PTT 電子布告欄也上線了。",
+              "en-US": "that same year, a university student launched the PTT bulletin board at National Taiwan University.",
+              "vi-VN": "cùng năm đó, diễn đàn BBS PTT do một sinh viên Đại học Quốc gia Đài Loan lập ra cũng đi vào hoạt động.",
+              "ja-JP": "同じ年、台湾大学の学生が立ち上げた掲示板「PTT」も始まりました。"
+            }
+          },
+          {
+            "start": 159.174,
+            "end": 163.984,
+            "text": {
+              "zh-TW": "1999 年 ADSL 出現，上網不再占用電話；",
+              "en-US": "ADSL arrived in 1999, so going online no longer tied up the phone.",
+              "vi-VN": "Năm 1999 ADSL xuất hiện, lên mạng không còn chiếm đường điện thoại;",
+              "ja-JP": "1999年にADSLが登場し、ネット接続で電話がふさがらなくなりました。"
+            }
+          },
+          {
+            "start": 164.034,
+            "end": 166.284,
+            "text": {
+              "zh-TW": "2007 年，光纖進入家庭；",
+              "en-US": "Fiber reached homes in 2007,",
+              "vi-VN": "năm 2007, cáp quang vào đến hộ gia đình;",
+              "ja-JP": "2007年には光ファイバーが家庭に届き、"
+            }
+          },
+          {
+            "start": 166.334,
+            "end": 169.184,
+            "text": {
+              "zh-TW": "2014 年 4G、2020 年 5G 開台，",
+              "en-US": "and 4G in 2014 and 5G in 2020",
+              "vi-VN": "năm 2014 có 4G, năm 2020 có 5G,",
+              "ja-JP": "2014年に4G、2020年に5Gがサービスを開始し、"
+            }
+          },
+          {
+            "start": 169.234,
+            "end": 172.954,
+            "text": {
+              "zh-TW": "網路從桌上走進口袋。",
+              "en-US": "moved the Internet from the desk into our pockets.",
+              "vi-VN": "Internet đi từ bàn làm việc vào túi áo.",
+              "ja-JP": "インターネットは机の上からポケットの中へ移りました。"
+            }
+          },
+          {
+            "start": 174.765,
+            "end": 176.295,
+            "text": {
+              "zh-TW": "同樣下載 5 MB 的檔案，",
+              "en-US": "The same five-megabyte file",
+              "vi-VN": "Cùng tải một tệp 5 MB,",
+              "ja-JP": "同じ5MBのファイルをダウンロードするのに、"
+            }
+          },
+          {
+            "start": 176.345,
+            "end": 180.845,
+            "text": {
+              "zh-TW": "撥接要十幾分鐘，光纖不到一秒。",
+              "en-US": "took over ten minutes on dial-up, and under a second on fiber.",
+              "vi-VN": "quay số mất hơn mười phút, cáp quang chưa đến một giây.",
+              "ja-JP": "ダイヤルアップでは10分以上、光ファイバーなら1秒未満です。"
+            }
+          },
+          {
+            "start": 184.687,
+            "end": 186.457,
+            "text": {
+              "zh-TW": "不過，光纖得拉線到家；",
+              "en-US": "But fiber needs a cable to your home,",
+              "vi-VN": "Tuy nhiên, cáp quang phải kéo dây đến tận nhà;",
+              "ja-JP": "ただし、光ファイバーは家まで線を引く必要があり、"
+            }
+          },
+          {
+            "start": 186.507,
+            "end": 190.767,
+            "text": {
+              "zh-TW": "行動網路雖然方便，卻受基地台和訊號影響。",
+              "en-US": "while mobile is convenient but depends on towers and signal.",
+              "vi-VN": "mạng di động tuy tiện lợi nhưng phụ thuộc vào trạm phát sóng và tín hiệu.",
+              "ja-JP": "モバイル通信は便利ですが、基地局と電波状況に左右されます。"
+            }
+          },
+          {
+            "start": 194.427,
+            "end": 196.537,
+            "text": {
+              "zh-TW": "2023 年 2 月，",
+              "en-US": "In February 2023,",
+              "vi-VN": "Tháng 2 năm 2023,",
+              "ja-JP": "2023年2月、"
+            }
+          },
+          {
+            "start": 196.587,
+            "end": 199.437,
+            "text": {
+              "zh-TW": "連接台灣和馬祖的兩條海纜，",
+              "en-US": "the two submarine cables linking Taiwan and Matsu",
+              "vi-VN": "hai tuyến cáp quang biển nối Đài Loan và Mã Tổ",
+              "ja-JP": "台湾と馬祖を結ぶ2本の海底ケーブルが、"
+            }
+          },
+          {
+            "start": 199.487,
+            "end": 203.457,
+            "text": {
+              "zh-TW": "在 2 月 2 日和 8 日相繼斷裂。",
+              "en-US": "broke one after another, on February 2nd and 8th.",
+              "vi-VN": "lần lượt bị đứt vào ngày 2 và ngày 8 tháng 2.",
+              "ja-JP": "2月2日と8日に相次いで切断されました。"
+            }
+          },
+          {
+            "start": 203.507,
+            "end": 212.319,
+            "text": {
+              "zh-TW": "封包找不到海纜這條路，只能改走微波備援。",
+              "en-US": "With the cable route gone, packets had to fall back on a microwave link.",
+              "vi-VN": "Không còn đường cáp biển, các gói tin phải chuyển sang đường dự phòng vi ba.",
+              "ja-JP": "海底ケーブルの道を失ったパケットは、マイクロ波のバックアップに頼るしかありません。"
+            }
+          },
+          {
+            "start": 212.369,
+            "end": 216.679,
+            "text": {
+              "zh-TW": "海纜像兩條高速公路，微波卻只是一條小路，",
+              "en-US": "The cables were like two highways; the microwave link was a narrow side road,",
+              "vi-VN": "Cáp biển như hai đường cao tốc, còn vi ba chỉ là một con đường nhỏ,",
+              "ja-JP": "海底ケーブルが2本の高速道路なら、マイクロ波は細い脇道にすぎず、"
+            }
+          },
+          {
+            "start": 216.729,
+            "end": 219.969,
+            "text": {
+              "zh-TW": "所有車子都擠了上去。",
+              "en-US": "and all the traffic squeezed onto it.",
+              "vi-VN": "mọi xe cộ đều dồn lên đó.",
+              "ja-JP": "すべての車がそこに押し寄せました。"
+            }
+          },
+          {
+            "start": 222.725,
+            "end": 226.875,
+            "text": {
+              "zh-TW": "網路沒有完全中斷，但頻寬小了很多，",
+              "en-US": "The connection never fully went dark, but bandwidth dropped sharply,",
+              "vi-VN": "Mạng không mất hẳn, nhưng băng thông giảm mạnh,",
+              "ja-JP": "通信が完全に途絶えたわけではありませんが、帯域は大きく減り、"
+            }
+          },
+          {
+            "start": 226.925,
+            "end": 230.875,
+            "text": {
+              "zh-TW": "看影片、刷卡、視訊都變得很慢。",
+              "en-US": "and videos, card payments and video calls all slowed down.",
+              "vi-VN": "xem video, quẹt thẻ, gọi video đều trở nên rất chậm.",
+              "ja-JP": "動画もカード決済もビデオ通話も、とても遅くなりました。"
+            }
+          },
+          {
+            "start": 230.925,
+            "end": 234.545,
+            "text": {
+              "zh-TW": "直到大約五十天後，海纜才修復。",
+              "en-US": "It took about fifty days to repair the cables.",
+              "vi-VN": "Phải khoảng năm mươi ngày sau cáp biển mới được sửa xong.",
+              "ja-JP": "ケーブルが修復されたのは、約50日後でした。"
+            }
+          },
+          {
+            "start": 237.542,
+            "end": 238.392,
+            "text": {
+              "zh-TW": "這告訴我們：",
+              "en-US": "The lesson:",
+              "vi-VN": "Điều này cho thấy:",
+              "ja-JP": "ここから分かるのは、"
+            }
+          },
+          {
+            "start": 238.442,
+            "end": 242.922,
+            "text": {
+              "zh-TW": "繞道的前提，是真的還有別條路可走。",
+              "en-US": "rerouting only works if there really is another road to take.",
+              "vi-VN": "muốn đi đường vòng thì phải thật sự còn một con đường khác.",
+              "ja-JP": "迂回できるのは、本当に別の道が残っている場合だけだということです。"
+            }
+          },
+          {
+            "start": 246.522,
+            "end": 253.132,
+            "text": {
+              "zh-TW": "馬祖事件後，數位發展部推動低軌衛星的韌性驗證計畫，",
+              "en-US": "After the Matsu incident, Taiwan's Ministry of Digital Affairs launched a program to test low-Earth-orbit satellites",
+              "vi-VN": "Sau sự cố Mã Tổ, Bộ Phát triển Kỹ thuật số thúc đẩy chương trình thử nghiệm vệ tinh quỹ đạo thấp",
+              "ja-JP": "馬祖の件の後、デジタル発展部は低軌道衛星による強靭性の検証計画を進め、"
+            }
+          },
+          {
+            "start": 253.182,
+            "end": 255.172,
+            "text": {
+              "zh-TW": "讓衛星成為另一條備援路。",
+              "en-US": "as another backup route.",
+              "vi-VN": "để vệ tinh trở thành một tuyến dự phòng khác.",
+              "ja-JP": "衛星をもう一つのバックアップ経路にしようとしています。"
+            }
+          },
+          {
+            "start": 255.222,
+            "end": 260.312,
+            "text": {
+              "zh-TW": "到了 2025 年，台灣個人上網率已達 88.75%；",
+              "en-US": "By 2025, 88.75 percent of people in Taiwan were online;",
+              "vi-VN": "Đến năm 2025, tỷ lệ người dân Đài Loan dùng Internet đạt 88,75%;",
+              "ja-JP": "2025年、台湾の個人インターネット利用率は88.75%に達し、"
+            }
+          },
+          {
+            "start": 260.362,
+            "end": 262.672,
+            "text": {
+              "zh-TW": "其中 5G 上網率約 41%，",
+              "en-US": "about 41 percent used 5G,",
+              "vi-VN": "khoảng 41% dùng 5G,",
+              "ja-JP": "5Gの利用率は約41%、"
+            }
+          },
+          {
+            "start": 262.722,
+            "end": 266.822,
+            "text": {
+              "zh-TW": "也有四成以上的民眾用過生成式 AI。",
+              "en-US": "and more than four in ten had tried generative AI.",
+              "vi-VN": "và hơn bốn phần mười người dân đã từng dùng AI tạo sinh.",
+              "ja-JP": "生成AIを使ったことがある人も4割を超えました。"
+            }
+          },
+          {
+            "start": 270.018,
+            "end": 272.708,
+            "text": {
+              "zh-TW": "接下來，6G 仍在研究中；",
+              "en-US": "Looking ahead, 6G is still being researched.",
+              "vi-VN": "Sắp tới, 6G vẫn đang được nghiên cứu;",
+              "ja-JP": "これから先、6Gはまだ研究段階です。"
+            }
+          },
+          {
+            "start": 272.758,
+            "end": 276.828,
+            "text": {
+              "zh-TW": "而如何讓海纜、微波和衛星互相備援，",
+              "en-US": "Making cables, microwave and satellites back each other up,",
+              "vi-VN": "còn làm sao để cáp biển, vi ba và vệ tinh dự phòng cho nhau,",
+              "ja-JP": "海底ケーブル、マイクロ波、衛星をどう補い合わせるか、"
+            }
+          },
+          {
+            "start": 276.878,
+            "end": 279.428,
+            "text": {
+              "zh-TW": "又讓每個人都用得上、用得好，",
+              "en-US": "and making sure everyone can get online and use it well,",
+              "vi-VN": "và để mọi người đều dùng được, dùng tốt,",
+              "ja-JP": "そして誰もが使え、使いこなせるようにするか、"
+            }
+          },
+          {
+            "start": 279.478,
+            "end": 282.178,
+            "text": {
+              "zh-TW": "都是還沒解完的題目。",
+              "en-US": "remain unsolved problems.",
+              "vi-VN": "đều là những bài toán chưa có lời giải.",
+              "ja-JP": "どちらもまだ解けていない課題です。"
+            }
+          },
+          {
+            "start": 284.169,
+            "end": 286.879,
+            "text": {
+              "zh-TW": "從「LO」兩個字到今天，",
+              "en-US": "From the two letters L O to today,",
+              "vi-VN": "Từ hai chữ \"LO\" cho đến hôm nay,",
+              "ja-JP": "「LO」の2文字から今日まで、"
+            }
+          },
+          {
+            "start": 286.929,
+            "end": 289.439,
+            "text": {
+              "zh-TW": "網路最核心的想法始終沒變：",
+              "en-US": "the Internet's core idea has not changed:",
+              "vi-VN": "ý tưởng cốt lõi của mạng vẫn không đổi:",
+              "ja-JP": "インターネットの核となる考え方は変わっていません。"
+            }
+          },
+          {
+            "start": 289.489,
+            "end": 293.509,
+            "text": {
+              "zh-TW": "切開、找路，再拼回來。",
+              "en-US": "cut it up, find a way, and put it back together.",
+              "vi-VN": "chia nhỏ, tìm đường, rồi ghép lại.",
+              "ja-JP": "分けて、道を探し、また組み立てる。"
+            }
+          }
+        ],
+        "review_note": "2026-10-18: cue text checked to concatenate exactly to the approved narration; timing from faster-whisper word timestamps on the real audio, checked for order/overlap/min duration. Human listening of sync: pending."
+      }
+    }
+  }
+}
